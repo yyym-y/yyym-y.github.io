@@ -16,11 +16,11 @@ PIC不使用绝对地址对data或者fun进行寻址，而是利用一些相对�
 
 ​		`GOT` 中是在`.text` 和 `.data` 层之中的
 
-![link-7](img/link-7.png)
+![link-7](images\postImg\CSAPP\img\link-7.png)
 
 ​		 `GOT` 实际上是一个数组的结构, 每一个 `GOT` 项代表一个地址, `GOT` 是可以进行修改的, 也就是说, 程序的每一次运行, 动态链接器都可以将正确的地址放置在 `GOT `表中,  同是跳转指令通过相对地址的操作就可以定位到一个具体的 `GOT` 项, 从而精确确定一个地址
 
-<img src="img/link-8.png" alt="link-8"  />
+<img src="images\postImg\CSAPP\img\link-8.png" alt="link-8"  />
 
 `GOT` 在 `ELF` 文件中有两个对应的段，分别为 `.got` 和 `.got.plt` ，其实是一个，只不过根据功能的不同，分成了两个：
 

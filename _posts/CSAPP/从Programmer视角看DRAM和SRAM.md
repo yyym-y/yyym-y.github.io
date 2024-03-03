@@ -24,7 +24,7 @@
 
 ​		我们明白, 计算机存储数据的形式是通过一个又一个 $0$ 和 $1$ 来实现的, 当我们需要某些数据的时候, 再将这些 $0$ 和 $1$ 解码成我们需要的形式, 所以计算机的存储设备都是围绕如何存储 $0$ 和 $1$ 的问题展开的, 包括我们今天要讲的 `DRAM` 和 `SRAM` . 这不免让我们想到, 既然计算机的存储的目的都是一样的, 那么整个计算机其实完全可以只有一种存储结构, 为什么还会有 `SRAM` , `DRAM`, `flash`, 磁盘 等等一些列存储方式呢 ?
 
-![RAM-intro-0](img/RAM-intro-0.png)
+![RAM-intro-0](images\postImg\CSAPP\img\RAM-intro-0.png)
 
 正如大家想的一样, 速度和成本是左右存储方式选择的重要原因, 在我们了解相关原理后相信你会有充分的了解
 
@@ -34,7 +34,7 @@
 
 SRAM 的结构图如下所示 : 
 
-![RAM-intro-1](img/RAM-intro-1.png)
+![RAM-intro-1](images\postImg\CSAPP\img\RAM-intro-1.png)
 
 ### 前置知识介绍
 
@@ -42,7 +42,7 @@ SRAM 的结构图如下所示 :
 
 我们首先先介绍一下 SRAM 的核心结构 : 双稳态电路
 
-![RAM-intro-2](img/RAM-intro-2.png)
+![RAM-intro-2](images\postImg\CSAPP\img\RAM-intro-2.png)
 
 我们将高电平设为 $1$ , 低电平设为 $0$ , 那么就有 : 
 
@@ -56,7 +56,7 @@ SRAM 的结构图如下所示 :
 
 在我们所给的这个 SRAM 图中 ,  红色的线代表 $Q$ , 黄色的线代表 $\bar{Q}$
 
-![RAM-intro-3](img/RAM-intro-3.png)
+![RAM-intro-3](images\postImg\CSAPP\img\RAM-intro-3.png)
 
 
 

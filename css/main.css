@@ -1543,6 +1543,8 @@
 	}
 
 /* Basic */
+/* Set basic markdown show effect */
+  
 
 	body {
 		background: #fff;
@@ -1560,7 +1562,10 @@
 		}
 
 	body, input, select, textarea {
-		color: #a2a2a2;
+		/* color: #a2a2a2; */
+		letter-spacing: 0.5px;
+		word-spacing: 0.5px;
+		line-height: 0.3px;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 16pt;
 		font-weight: 400;
@@ -1584,22 +1589,26 @@
 		}
 
 	strong, b {
-		color: #787878;
-		font-weight: 400;
+		color: black;
+		font-weight: 600
 	}
-
+	h1 > strong, h2 > strong, h3 > strong, h4 > strong, h5 > strong, h6 > strong {
+		font-weight: 1000;
+	}
 	em, i {
 		font-style: italic;
 	}
 
 	p {
-		margin: 0 0 2em 0;
+		margin: 0 0 0.5em 0;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #787878;
-		font-weight: 400;
+		color: black;
+		font-weight: 1000;
 		line-height: 1em;
+		margin-top: 1.2em; /* set title top mergin */
+		margin-bottom: 0.3em; /* set title bottom mergin */
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -1608,32 +1617,32 @@
 		}
 
 	h1 {
-		font-size: 2em;
+		font-size: 2.5em;
 		line-height: 1.5em;
 	}
 
 	h2 {
-		font-size: 1.5em;
+		font-size: 1.6em;
 		line-height: 1.5em;
 	}
 
 	h3 {
-		font-size: 1.25em;
+		font-size: 1.55em;
 		line-height: 1.5em;
 	}
 
 	h4 {
-		font-size: 1.1em;
+		font-size: 1.4em;
 		line-height: 1.5em;
 	}
 
 	h5 {
-		font-size: 0.9em;
+		font-size: 1.2em;
 		line-height: 1.5em;
 	}
 
 	h6 {
-		font-size: 0.7em;
+		font-size: 1em;
 		line-height: 1.5em;
 	}
 
@@ -1661,9 +1670,9 @@
 
 	blockquote {
 		border-left: solid 6px #efefef;
-		font-style: italic;
-		margin: 0 0 2em 0;
-		padding: 0.5em 0 0.5em 1.5em;
+		margin: 0 0 0.7em 0;
+		color: gray;
+		padding: 0.3em 0 0.2em 1.3em;
 	}
 
 	code {
@@ -1671,7 +1680,7 @@
 		border-radius: 0.35em;
 		border: solid 2px #efefef;
 		font-family: "Courier New", monospace;
-		font-size: 0.9em;
+		font-size: 1.1em;
 		margin: 0 0.25em;
 		padding: 0.25em 0.65em;
 	}

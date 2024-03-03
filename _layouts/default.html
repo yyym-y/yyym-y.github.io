@@ -10,7 +10,8 @@
 		<meta name="generator" content="Jekyll v{{ jekyll.version }}">
 
 		<!--[if lte IE 8]><script src="/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
+		<!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+		<link rel="stylesheet" href="/css/github.css" type="text/css">
 		<link rel="stylesheet" href="/css/main.css">
 		<!--[if lte IE 8]><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
 
@@ -18,6 +19,21 @@
     <link rel="icon" type="image/png" href="/touch-icon.png" sizes="192x192">
     <link rel="icon" type="image/png" href="/images/favicon.png">
 
+
+	<!-- this is for Latex show -->
+	<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			tex2jax: {
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+				inlineMath: [['$', '$']]
+			}
+		});
+	</script>
+	<!-- this for code hightlight -->
+	<link rel="stylesheet" href="/css/rouge.css">
+
+	
     {% seo %}
     {% feed_meta %}
 
@@ -26,7 +42,7 @@
 	<body id="top">
     <header id="header">
       <a href="{{ site.url }}" class="image avatar"><img class="editable" src="/images/avatar.png" alt="{{ site.author.name }}"></a>
-      <h1 class="editable"><strong>I am <a href="/">yyym</a></strong>, a University students.<br>
+      <h1 class="editable"><strong>I am <a href="/">yyym</a></strong>, a University students<br>
       studied in SCNU (nanhai)<br>
       now is a Sophomores in <a href="http://ss.scnu.edu.cn/">school of software</a>.</h1>
     </header>

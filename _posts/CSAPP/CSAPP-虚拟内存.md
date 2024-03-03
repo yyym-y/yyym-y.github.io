@@ -4,11 +4,11 @@
 
 ​		我们知道计算机会将数据存储在磁盘或者硬盘上, 同时我们使用一个唯一的地址去标识这个位置, 我们也可以通过这个地址来精确的找到我们想要的位置. 我们自然而然的能像到, 如果 CPU 想要知道某一的位置的内容, 那它就可以拿着这个位置的物理地址去寻找, 这种寻址方式就叫**物理寻址**
 
-<img src="img/VM-0.png" alt="VM-0" style="zoom: 80%;" />
+<img src="images\postImg\CSAPP\img\VM-0.png" alt="VM-0" style="zoom: 80%;" />
 
 早期的 PC 会选择物理寻址, 但是现在的处理器会使用一种名叫 **虚拟寻址** 的技术
 
-<img src="img/VM-1.png" alt="VM-1" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-1.png" alt="VM-1" style="zoom:80%;" />
 
 如上图所示, 
 
@@ -35,7 +35,7 @@ CPU 不会直接用物理地址去寻找, 而是直接使用虚拟地址, 将虚
 
 ​		我们知道在实际的存储过程中, 数据是以一页一页的形式存储的, 我们叫 **物理页** , 为了维护虚拟内存中的映射表, 我们也需要有相对应的形式来表示物理页, 于是我们就定义了 **虚拟页** , 虚拟页是一个抽象的概念, 它和物理页的大小完全相同, 有一种专门的数据结构叫**页表条目**, 它存储着它所对应的物理页在虚拟内存的相关情况
 
-<img src="img/VM-2.png" alt="VM-2" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-2.png" alt="VM-2" style="zoom:80%;" />
 
 页表条目大致上存储的信息可以分为三大类
 
@@ -57,25 +57,25 @@ CPU 不会直接用物理地址去寻找, 而是直接使用虚拟地址, 将虚
 - 如果在，地址字段就表示`DRAM`中相应物理页的起始位置；
 - 如果不在，地址字段就指向该虚拟页在磁盘上的起始位置；
 
-<img src="img/VM-3.png" alt="VM-3" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-3.png" alt="VM-3" style="zoom:80%;" />
 
 #### 页命中, 缺页, 分配页面
 
 - **页命中**：一个页命中的过程，就是一个虚拟地址转换为物理地址的过程。
 
-  <img src="img/VM-6.png" alt="VM-6" style="zoom:80%;" />
+  <img src="images\postImg\CSAPP\img\VM-6.png" alt="VM-6" style="zoom:80%;" />
 
 - **缺页**：`DRAM`缓存不命中称为缺页 (page fault)，缺页会触发一个缺页异常，异常调用内核中的缺页异常处理程序，在`DRAM`中选择一个牺牲页。
 
 发生缺页的时候, MMU 会发出一个缺页异常, 之后系统会进入内核态, 然后执行缺页异常处理程序. 缺页异常处理程序会操作缓存, 将请求的页读入缓存中, 之后 CPU会再次向 MMU 请求虚拟地址, 这个时候对应的物理页是已经在缓存中的, 就不会再产生缺页异常了, MMU 将地址给缓存, 缓存读出来之后再返回给 CPU, 这个过程结束
 
-<img src="img/VM-4.png" alt="VM-4" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-4.png" alt="VM-4" style="zoom:80%;" />
 
-<img src="img/VM-5.png" alt="VM-5" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-5.png" alt="VM-5" style="zoom:80%;" />
 
 * **分配页面** : 操作系统分配一个新的虚拟内存时，如调用`malloc`，首先在磁盘上面创建空间并更新**页表**的`PTE`，使其中某个`PTE`从原来指向`null`，变成指向磁盘上新创建的页面，此时虚拟页从**未分配**状态变为**未缓存**。
 
-<img src="img/VM-7.png" alt="VM-7" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-7.png" alt="VM-7" style="zoom:80%;" />
 
 
 
@@ -87,13 +87,13 @@ CPU 不会直接用物理地址去寻找, 而是直接使用虚拟地址, 将虚
 
 * **共享内容** : 如果两个进程使用了共享的内容, 那么他们的页表可以指向同一片区域从而提高效率
 
-  <img src="img/VM-8.png" alt="VM-8" style="zoom:80%;" />
+  <img src="images\postImg\CSAPP\img\VM-8.png" alt="VM-8" style="zoom:80%;" />
 
 * **简化链接** : 独立地址空间允许每个进程的内存映像使用相同的基本格式，而不管代码和数据实际存放在物理内存的何处。
 
   有了虚拟内存的帮助, 每一个进程看自己的内存结构都是一样的 :
 
-  <img src="img/VM-9.png" alt="VM-9" style="zoom:80%;" />
+  <img src="images\postImg\CSAPP\img\VM-9.png" alt="VM-9" style="zoom:80%;" />
 
   每一个进程, 代码段总是从 $\mathrm{0x}400000$ 开始的, 之后再依次递增
 
@@ -114,7 +114,7 @@ CPU 不会直接用物理地址去寻找, 而是直接使用虚拟地址, 将虚
 - `sup`，进程是否运行在内核模式下才能访问。
 - `read`、`write`，读写控制访问。
 
-<img src="img/VM-10.png" alt="VM-10" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-10.png" alt="VM-10" style="zoom:80%;" />
 
 
 
@@ -130,7 +130,7 @@ CPU 不会直接用物理地址去寻找, 而是直接使用虚拟地址, 将虚
 
 因为虚拟页和物理页大小都是 $P$ 字节，所以 `VPO`和 `PPO` 是相同的。`MMU` 利用 `VPN` 来选择 `PTE` ，进而得到 `PPN` ，由于 `VPO` 与 `PPO`相同，因此将 `PPN` 与 `VPO` 串联起来就得到了物理地址。
 
-<img src="img/VM-11.png" alt="VM-11" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-11.png" alt="VM-11" style="zoom:80%;" />
 
 为了能够更加直观的演示地址翻译的全过程, 我们举下面的例子 : 
 
@@ -139,7 +139,7 @@ CPU 不会直接用物理地址去寻找, 而是直接使用虚拟地址, 将虚
 * 虚拟地址是 $14$ 位长的 $n = 14$ , 物理地址是 $12$ 位长的 $m = 12$
 * 页面大小是 $64$ 个字节的 $P = 64$
 
-<img src="img/VM-12.png" alt="VM-12" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-12.png" alt="VM-12" style="zoom:80%;" />
 
 * 我们要翻译的虚拟地址是 $\mathrm{0x0E1A}$ 
 
@@ -163,7 +163,7 @@ CPU 不会直接用物理地址去寻找, 而是直接使用虚拟地址, 将虚
 
 3. 根据 CPU 中的页表基址寄存器查看页表信息, 并找到对应的 `VPN`
 
-   > <img src="img/VM-13.png" alt="VM-13" style="zoom:80%;" />
+   > <img src="images\postImg\CSAPP\img\VM-13.png" alt="VM-13" style="zoom:80%;" />
    >
    > 发现 $\mathrm{0E}$ 对应的 `PPN` 为 $\mathrm{11}$ , 同时有效位为 $1$ , 说明该虚拟页已分配并且已缓存
    >
@@ -181,7 +181,7 @@ CPU 不会直接用物理地址去寻找, 而是直接使用虚拟地址, 将虚
 
 ​		之后 CPU 再次向 `MMU` 发送对于虚拟地址 $\mathrm{0x0504}$ 的翻译请求, 这次页命中返回
 
-<img src="img/VM-15.png" alt="VM-15" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-15.png" alt="VM-15" style="zoom:80%;" />
 
 ### 使用 TLB 加速地址翻译
 
@@ -189,7 +189,7 @@ CPU 不会直接用物理地址去寻找, 而是直接使用虚拟地址, 将虚
 
 TLB 也分命中和不命中, 具体的细节和我们之前讲的 存储器体系结构相似, 也就不做赘述了
 
-<img src="img/VM-16.png" alt="VM-16" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-16.png" alt="VM-16" style="zoom:80%;" />
 
 
 
@@ -199,13 +199,13 @@ TLB 也分命中和不命中, 具体的细节和我们之前讲的 存储器体�
 
 所以我们采用分级的方式去存储页表, 我们将一个虚拟地址组织成下面的形式
 
-<img src="img/VM-17.png" alt="VM-17" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-17.png" alt="VM-17" style="zoom:80%;" />
 
 同时一级页表也不再存储物理页的信息, 而是存储二级页表的地址
 
 于是整体的结构为 :
 
-<img src="img/VM-18.png" alt="VM-18" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-18.png" alt="VM-18" style="zoom:80%;" />
 
 
 
@@ -213,7 +213,7 @@ TLB 也分命中和不命中, 具体的细节和我们之前讲的 存储器体�
 
 其实这一点和我们之前讲的都差不多, 主要是要自己看书, 页码为 $576 \sim 579$
 
-<img src="img/VM-19.png" alt="VM-19" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-19.png" alt="VM-19" style="zoom:80%;" />
 
 
 
@@ -221,7 +221,7 @@ TLB 也分命中和不命中, 具体的细节和我们之前讲的 存储器体�
 
 Linux为每个**进程**维护了一个单独的虚拟地址空间
 
-<img src="img/VM-20.png" alt="VM-20" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-20.png" alt="VM-20" style="zoom:80%;" />
 
 可以看到, 我们可以将上述的图划分为两种状态, 上面的叫内核态, 下面的叫用户态
 
@@ -242,7 +242,7 @@ Linux将虚拟内存组织成一些区域(也叫做段)的集合，一个区域�
 
 我们现在就来介绍一下, 在内核中是如何存储这些段的信息的 : 
 
-<img src="img/VM-21.png" alt="VM-21" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-21.png" alt="VM-21" style="zoom:80%;" />
 
 在我们最开始展示的 Linux 虚拟内存组织结构图中, 内核态上有一个 `与进程相关数据结构` 部分, 这个数据结构就是 `task_struct`, 我们关系 `task_struct` 中的 `mm` 项. `mm` 项指向了一个 `mm_struct` 的数据结构, 这个数据结构中我们只关心两项
 
@@ -267,7 +267,7 @@ Linux将虚拟内存组织成一些区域(也叫做段)的集合，一个区域�
 * 判断进程是否有读、写、执行这个区域内页面的权限，即内存访问是否合法。若不合法，则触发一个保护异常，终止进程。
 * 若是通过了上述两步，则说明该缺页是对一个合法地址的合法操作导致的，由此则可以处理缺页。选择一个牺牲页，如果牺牲页被修改过，那么把它交换出去，换入新的页面并更新页表。缺页处理程序返回时，CPU重新启动引起缺页的指令，这条指令将再次发送 $A$ 到 `MMU`。
 
-<img src="img/VM-22.png" alt="VM-22" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-22.png" alt="VM-22" style="zoom:80%;" />
 
 
 
@@ -308,14 +308,14 @@ Linux将虚拟内存组织成一些区域(也叫做段)的集合，一个区域�
 
 下面的图展示了共享区域的映射
 
-<img src="img/VM-23.png" alt="VM-23" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-23.png" alt="VM-23" style="zoom:80%;" />
 
 私有对象使用一种叫做**写时复制**的巧妙技术被映射到虚拟内存中。对于下图有两个说明：
 
 * 在物理内存中保存私有对象的一个副本，只要没有进程试图写私有区域，进程就可以一直共享物理内存中对象的一个单独副本，且每个进程私有区域的页表条目都被标记为只读，区域结构被标记为私有写时复制。
 * 若有进程试图写私有区域的某个页面，会触发一个保护故障，它会在内存中创建这个被写页面的新副本，然后更新页表条目指向新副本，并恢复这个页面的可写权限。
 
-<img src="img/VM-24.png" alt="VM-24" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-24.png" alt="VM-24" style="zoom:80%;" />
 
 
 
@@ -336,7 +336,7 @@ Linux下可以使用 `fork` 函数创建新的进程，显然创建的新进程�
 * 映射共享区域，如 `a.out` 与 `libc.so` 库链接，则将库映射到用户空间的共享区域。
 * 设置当前进程上下文的程序计数器 (PC)，使之指向代码区域的入口
 
-<img src="img/VM-25.png" alt="VM-25" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\VM-25.png" alt="VM-25" style="zoom:80%;" />
 
 ### 使用 mmap 函数进行用户级内存映射
 

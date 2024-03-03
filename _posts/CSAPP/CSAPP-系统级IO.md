@@ -56,7 +56,7 @@
 
 * socket 套接字 : 用来和其他进程网络通信
 
-<img src="img/io_0.png" alt="io_0" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\io_0.png" alt="io_0" style="zoom:80%;" />
 
 
 
@@ -88,7 +88,7 @@ int open(char* filename, int flags, mode_t mode);
 
 `mode` : 表示了访问权限 : 
 
-<img src="img/io_1.png" alt="io_1" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\io_1.png" alt="io_1" style="zoom:80%;" />
 
 ​	作为上下文的一部分，每个进程都有一个 `umask` ，它是通过调用 `umask` 函数来设置的。当进程通过带某个 `mode` 参数的 `open` 函数调用来创建一个新文件时，文件的访问权限位被设置为 `mode & ~ umask`
 
@@ -245,7 +245,7 @@ int closedir(DIR *dirp);
 
 由于每个进程打开的文件不同，因此还需要有**描述符表（File Table）**表示单个进程打开的文件，同时还会有一个维护所有文件信息的表 **v-node表** 能够供内核知道文件具体的信息
 
-<img src="img/io_2.png" alt="io_2" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\io_2.png" alt="io_2" style="zoom:80%;" />
 
 内核有三种数据结构来**表示打开的文件**：
 
@@ -271,7 +271,7 @@ int closedir(DIR *dirp);
 
   > 一个进程对同一文件使用多次 `open` 打开，内核不会将多个 `open` 都认为是相同的，而会认为多个文件的**文件位置**是不同的。内核会为多个文件**分配不同的文件描述符**，使其**指向不同的打开文件表表项**，**获得不同的文件位置**，但是由于基本信息相同，会指向同一个**v-node表项**，这就使得这两个文件描述符可以对同一个文件的不同文件位置进行读写，将不同的**描述符操作**独立开来。
   >
-  > <img src="img/io_3.png" alt="io_3" style="zoom:80%;" />
+  > <img src="images\postImg\CSAPP\img\io_3.png" alt="io_3" style="zoom:80%;" />
 
 * 不同的进程 [不是子进程] 打开相同的文件
 
@@ -333,7 +333,7 @@ int dup2(int oldfd, int newfd);
 
 如果`newfd`是已打开的文件，`dup2`会首先关闭`newfd`，然后将`oldfd`对应的描述符表项替换`newfd`描述符表项，使得将`newfd`重定向到`oldfd`，如果原始`newfd`对应的文件表表项的引用计数为 0，则会删除对应的文件表表项和v-node表项
 
-<img src="img/io_4.png" alt="io_4" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\io_4.png" alt="io_4" style="zoom:80%;" />
 
 示例如下 :
 

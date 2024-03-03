@@ -29,7 +29,7 @@ $$
 
 异常可以分为以下几类 : `中断(interrupt)` `陷阱(trap)` `故障(fault)` `终止(abort)`
 
-![singular-0](img/singular-0.png)
+![singular-0](images\postImg\CSAPP\img\singular-0.png)
 
 我们简单解释一下异步和同步 ：
 
@@ -50,7 +50,7 @@ $$
 
 过程图如下 :
 
-![singular-1](img/singular-1.png)
+![singular-1](images\postImg\CSAPP\img\singular-1.png)
 
 
 
@@ -64,7 +64,7 @@ $$
 
 ​		相关过程图如下所示 :
 
-![singular-2](img/singular-2.png)
+![singular-2](images\postImg\CSAPP\img\singular-2.png)
 
 下面我们演示一下系统级调用 : 
 
@@ -87,7 +87,7 @@ int main()
 
 ​		故障由错误情况引起，它可能能够被故障处理程序修正。当故障发生时，处理器将控制转移给故障处理程序。如果处理程序能够修正这个错误情况，它就将控制返回到引起故障的指令，从而重新执行它。否则，处理程序返回到内核中的 abort 例程，abort 例程会终止引起故障的应用程序。
 
-![singular-3](img/singular-3.png)
+![singular-3](images\postImg\CSAPP\img\singular-3.png)
 
 
 
@@ -96,7 +96,7 @@ int main()
 - **终止**是不可恢复的致命错误造成的结果，通常是一些硬件错误，比如DRAM和SRAM被损坏。
 - 终止处理程序从不将控制返回给应用程序。返回一个`abort`例程。
 
-![singular-4](img/singular-4.png)
+![singular-4](images\postImg\CSAPP\img\singular-4.png)
 
 ### Linux/IA32 系统中的异常
 
@@ -107,7 +107,7 @@ int main()
 
 下图展示了 `Linux x86-64` 系统常见的系统调用
 
-<img src="img/singular-5.png" alt="singular-5"  />
+<img src="images\postImg\CSAPP\img\singular-5.png" alt="singular-5"  />
 
 - 在 `IA32` 系统中，系统调用是通过一条称为`int n`的陷阱指令完成，其中n可能是IA32异常表256个条目中任何一个索引，历史中，系统调用是通过异常128(0x80)提供的。
 - C程序可用`syscall`函数来直接调用任何系统调用
@@ -133,13 +133,13 @@ int main()
 
 对于每一个表项 $k$ , 都有与之对应的异常 $k$ 的处理程序的地址 
 
-![singular-6](img/singular-6.png)
+![singular-6](images\postImg\CSAPP\img\singular-6.png)
 
 在运行时(当系统在执行某个程序时)，处理器检测到发生了一个事件，并且确定了相应推一的异常号 $k$ 。随后，处理器触发异常。接着执行间接过程调用，通过异常表的表目 $k$，转到相应的处理程序。
 
 异常表的起始地址放在一个叫做异常表基址寄存器(exception table base register)的特殊 CPU寄存器里。
 
-![singular-7](img/singular-7.png)
+![singular-7](images\postImg\CSAPP\img\singular-7.png)
 
 概括来说 :
 
@@ -171,7 +171,7 @@ PC值的序列叫做`逻辑控制流`，或者简称`逻辑流`
 
 个人觉得将其视为 Java 中的多线程来理解会更好一点, 即多个程序同时执行
 
-![singular-8](img/singular-8.png)
+![singular-8](images\postImg\CSAPP\img\singular-8.png)
 
 ### 并发流
 
@@ -205,7 +205,7 @@ PC值的序列叫做`逻辑控制流`，或者简称`逻辑流`
 
 ​		代码段总是从地址 `0x400000` 开始。地址空间顶部保留给内核(操作系统常驻内存的部分)。地址空间的这个部分包含内核在代表进程执行指令时(比如当应用程序执行系统调用时)使用的代码、数据和栈
 
-![singular-9](img/singular-9.png)
+![singular-9](images\postImg\CSAPP\img\singular-9.png)
 
 ### 用户态和内核态
 
@@ -249,7 +249,7 @@ Linux 提供一种聪明的机制，叫`/proc`文件系统。允许用户模式�
 
 ​		当执行系统调用的时候或者触发了异常都有可能触发上下文中断, 下图展示两个进程的上下文切换过程
 
-![singular-10](img/singular-10.png)
+![singular-10](images\postImg\CSAPP\img\singular-10.png)
 
 
 
@@ -337,7 +337,7 @@ int main()
 // parent is 0
 ```
 
-<img src="img/singular-11.png" alt="singular-11" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\singular-11.png" alt="singular-11" style="zoom:80%;" />
 
 ### 回收子进程
 
@@ -474,7 +474,7 @@ int execve(const char* filename, const char* argv[],
 
 假设我们要执行命令 : `ls -lt /home/caspp` 时, 我们可以画出结构图 :
 
-![singular-12](img/singular-12.png)
+![singular-12](images\postImg\CSAPP\img\singular-12.png)
 
 值得注意的是, 我们自己写的原代码编译后也是一个可执行文件, 也可以被加载运行
 
@@ -487,7 +487,7 @@ int main(int argc,char *argv[],char *envp[]);
 
 开始执行后, 用户栈为 :
 
-![singular-13](img/singular-13.png)
+![singular-13](images\postImg\CSAPP\img\singular-13.png)
 
 Unix提供一下**几个函数**来操作环境数组。
 
@@ -567,7 +567,7 @@ Hello
 
 `Linux` 支持 $30$ 多种信号, 如下图所示 :
 
-![singular-14](img/singular-14.png)
+![singular-14](images\postImg\CSAPP\img\singular-14.png)
 
 一些信号示例如下 :
 
@@ -651,7 +651,7 @@ int setpgid(pid_t pid, pid_t pgid);
 
 下面是 Linux Shell 的作业图 :
 
-![singular-15](img/singular-15.png)
+![singular-15](images\postImg\CSAPP\img\singular-15.png)
 
 
 
@@ -799,4 +799,4 @@ Caught SIGINT
   >
   > 当处理程序捕获一个信号，被中断的慢速系统调用在信号处理程序返回后将不在继续，而是立即返回给用户一个错误条件，并将`errno`设置为`EINTR`。
 
-![singular-16](img/singular-16.png)
+![singular-16](images\postImg\CSAPP\img\singular-16.png)

@@ -1,9 +1,3 @@
----
-layout: post
-title: CSAPP - 信息的表示和处理
-categories: CSAPP
-date: 2023-12-11
----
 
 # CSAPP - 信息的表示和处理
 
@@ -144,7 +138,7 @@ gcc -m64 a.c
 * **大端**：是指数据的高字节保存在内存的低地址中，而**数据的低字节保存在内存的高地址**中，这样的存储模式有点儿类似于把数据当作字符串顺序处理：地址由小向大增加，而数据从高位往低位放。
 * **小端**：是指数据的高字节保存在内存的高地址中，而**数据的低字节保存在内存的低地址**中，这种存储模式将地址的高低和数据位权有效地结合起来，高地址部分权值高，低地址部分权值低，和我们的逻辑方法一致。
 
-<img src="img/datalab-0.png" alt="datalab-0" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\datalab-0.png" alt="datalab-0" style="zoom:80%;" />
 
 
 
@@ -239,7 +233,7 @@ signed main()
 
 **关于补码需要注意的地方**
 
-1. 补码的范围是不对称的：$|T_{min}| = |T_{max}| + 1$ ，之所以会有这样的不对称性，是因为一半的位模式（符号位设置为1的数）表示负数，而另一半（符号位设置为 $0$ 的数）表示非负数。因为 $0$ 是非负数，也就意味着能表示的整数比负数少一个。
+1. 补码的范围是不对称的：$\|T_{min}\| = \|T_{max}\| + 1$ ，之所以会有这样的不对称性，是因为一半的位模式（符号位设置为1的数）表示负数，而另一半（符号位设置为 $0$ 的数）表示非负数。因为 $0$ 是非负数，也就意味着能表示的整数比负数少一个。
 2.  最大的无符号数值刚好比补码的最大值的两倍大一点 $U_{max} = 2\times T_{max} + 1$
 
 
@@ -250,14 +244,19 @@ signed main()
 
 **反码**
 
-除了最高有效位的权重代表 $2^{w - 1} - 1$ 外， 其他都是与补码一致的， 即： $X = -x_{w - 1} (2^{w - 1} - 1) + \sum\limits_{i = 1}^{w - 2} x_i 2^i$
+除了最高有效位的权重代表 $2^{w - 1} - 1$ 外， 其他都是与补码一致的， 即： 
+
+$$
+X = -x_{w - 1} (2^{w - 1} - 1) + \sum\limits_{i = 1}^{w - 2} x_i 2^i
+$$
 
 **原码**
 
 这个表示方式最符合我一开始的想法， 最高位仅仅表示正负， 剩下的位数和无符号编码方式一致
 
-$X = x_{w - 1} \times (-1) + \sum\limits_{i = 1}^{w - 2} x_i 2^i$
-
+$$
+X = x_{w - 1} \times (-1) + \sum\limits_{i = 1}^{w - 2} x_i 2^i
+$$
 这位两种方式唯一的缺点就是都表示两次 $0$ :
 
  对于反码来说 $11$ 和 $00$ 都表示 $0$， 对于原码来说:  $10$ 和 $00$ 都表示 $0$
@@ -271,6 +270,7 @@ $X = x_{w - 1} \times (-1) + \sum\limits_{i = 1}^{w - 2} x_i 2^i$
 无符号编码转补码编码有专门的公式
 
 对于满足 $0 \le u \le U_{max}$ 的 $u$ 来说
+
 $$
 T = 
 \begin{cases}
@@ -278,9 +278,11 @@ T =
 \:\: u - 2^w  \:\:\:\: u > T_{max}
 \end{cases}
 $$
+
 对于补码转换为无符号数：
 
 对于满足 $T_{min} \le t \le T_{max}$ 的 $u$ 来说
+
 $$
 U = 
 \begin{cases}
@@ -288,6 +290,7 @@ U =
 \: t + 2^{w-1}  \:\:\:\: t < 0
 \end{cases}
 $$
+
  注意：当执行一个运算时，如果它的一个运算数是有符号的而另一个是无符号的，那么C语言会隐式地**将有符号参数强制类型转换为无符号数，并假设这两个数都是非负的**，来执行这个运算
 
 
@@ -449,7 +452,7 @@ $x \cdot 14 \Rightarrow (x << 3) + (x << 2) + (x << 1) \Rightarrow (x << 4) - (x
 
 与整数的表示方式类似， 我们使用相同的定义来表示一个浮点数 : $F = \sum\limits_{i = -n}^m 2^i \times b_i$
 
-<img src="img/datalab-1.png" alt="datalab-1" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\datalab-1.png" alt="datalab-1" style="zoom:80%;" />
 
 但这个方法实际上是有缺陷的， 他不能精准的表示某一些小数，这在某些时候会导致严重的问题
 
@@ -501,7 +504,7 @@ IEEE浮点标准用 $V = (-1)^s \times M \times 2^E$ 来表示一个数
 
 双精度浮点格式（double） $\Rightarrow$ s、exp和frac字段分别为1位、k = 11位和n = 52位，得到一个64位表示
 
-![datalab-2](img/datalab-2.png)
+![datalab-2](images\postImg\CSAPP\img\datalab-2.png)
 
 
 
@@ -535,7 +538,7 @@ IEEE浮点标准用 $V = (-1)^s \times M \times 2^E$ 来表示一个数
   >
   > 当 $frac$ 不全是 $0$ ， 也不全是 $1$ 的时候， 代表 $NAN$ （not a number）
 
-<img src="img/datalab-3.png" alt="datalab-3" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\datalab-3.png" alt="datalab-3" style="zoom:80%;" />
 
 
 

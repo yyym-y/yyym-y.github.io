@@ -192,7 +192,7 @@ objdump -d a.out
 
 ## 寄存器一览表
 
-<img src="img/booblab-0.png" alt="booblab-0" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\booblab-0.png" alt="booblab-0" style="zoom:80%;" />
 
 这张表只是让大家对寄存器的名字以及主要用途有个简单的了解，具体的我们后面会说
 
@@ -208,7 +208,7 @@ objdump -d a.out
 
 常见的寻址模式 ：
 
-<img src="img/booblab-1.png" alt="booblab-1" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\booblab-1.png" alt="booblab-1" style="zoom:80%;" />
 
 建议做一下练习 3.1, 做完你会感谢我的
 
@@ -216,7 +216,7 @@ objdump -d a.out
 
 `MOV` 指令一览
 
-<img src="img/booblab-2.png" alt="booblab-2" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\booblab-2.png" alt="booblab-2" style="zoom:80%;" />
 
 - **源操作数指定的值是一个立即数，存储在寄存器种或内存中**
 - **目的操作数为内存位置or寄存器**
@@ -230,21 +230,21 @@ movl 指令以寄存器作为目的时，会把该寄存器的高位4字节设�
 
 > `MOV` 指令的使用以及寻址方法实例
 
-<img src="img/booblab-3.png" alt="booblab-3" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\booblab-3.png" alt="booblab-3" style="zoom:80%;" />
 
 > 我们可以通过下面的图片来看到不同指令的区别
 >
-> <img src="img/capter3-extend-0.png" alt="capter3-extend-0" style="zoom:80%;" />
+> <img src="images\postImg\CSAPP\img\capter3-extend-0.png" alt="capter3-extend-0" style="zoom:80%;" />
 
 除此之外，还有拓展数字位数的操作
 
 **无符号整数拓展**
 
-<img src="img/booblab-4.png" alt="booblab-4" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\booblab-4.png" alt="booblab-4" style="zoom:80%;" />
 
 **有符号整数拓展**
 
-<img src="img/booblab-5.png" alt="booblab-5" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\booblab-5.png" alt="booblab-5" style="zoom:80%;" />
 
 `cltq` 相当于 `movslq %eax %rax` , 但是 `ctlq` 更加的编码紧凑
 
@@ -270,7 +270,7 @@ movl 指令以寄存器作为目的时，会把该寄存器的高位4字节设�
 
 栈指针是 `%rsp` , 每次压入栈指针会减少 $8$ ，紧接着再放入元素，如果是弹出元素， 那么就将栈指针直接增加 $8$
 
-<img src="img/booblab-6.png" alt="booblab-6" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\booblab-6.png" alt="booblab-6" style="zoom:80%;" />
 
 
 
@@ -278,7 +278,7 @@ movl 指令以寄存器作为目的时，会把该寄存器的高位4字节设�
 
 所有的算数逻辑操作都有四种变种，代表操作的字节数的不同，与 `MOV` 类相同，不做演示
 
-<img src="img/booblab-7.png" alt="booblab-7" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\booblab-7.png" alt="booblab-7" style="zoom:80%;" />
 
 
 
@@ -309,7 +309,7 @@ leap (%rdx, %rdx, 2), %rdx
 
 > 特殊的算数操作 / 除法
 
-<img src="img/capter3-extend-1.png" alt="capter3-extend-1" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\capter3-extend-1.png" alt="capter3-extend-1" style="zoom:80%;" />
 
 主要可以分成三种情况
 
@@ -340,13 +340,13 @@ leap (%rdx, %rdx, 2), %rdx
 * `SF`： 符号标志： 最近的操作得到的结果为负数
 * `OF` ： 溢出标志： 最近的操作导致了一个补码溢出， 包括真溢出和负溢出
 
-<img src="img/booblab-8.png" alt="booblab-8" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\booblab-8.png" alt="booblab-8" style="zoom:80%;" />
 
 除了上面我们提到的算数和逻辑操作， 还有两种操作可以影响条件码
 
 他们分别是 `CMP` 和 `TEST` 指令， 他们只会修改条件码，而不会修改原来的值
 
-<img src="img/booblab-9.png" alt="booblab-9" style="zoom: 80%;" />
+<img src="images\postImg\CSAPP\img\booblab-9.png" alt="booblab-9" style="zoom: 80%;" />
 
 ### 访问条件码
 
@@ -358,7 +358,7 @@ leap (%rdx, %rdx, 2), %rdx
 
 我们先介绍第一种方式， 我们使用 `SET` 指令
 
-<img src="img/booblab-10.png" alt="booblab-10" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\booblab-10.png" alt="booblab-10" style="zoom:80%;" />
 
 我们简单演示以下如何使用条件码来进行比较：
 
@@ -379,7 +379,7 @@ cmp:
 * 直接跳转的跳转目标是作为指令的一部分编码的（ `jmp .L1`）
 * 间接跳转跳转目标是从寄存器或内存位置中读出的（ `jmp *(%rax)`）
 
-<img src="img/booblab-11.png" alt="booblab-11" style="zoom: 80%;" />
+<img src="images\postImg\CSAPP\img\booblab-11.png" alt="booblab-11" style="zoom: 80%;" />
 
 注意：**条件跳转只能是直接跳转**
 
@@ -453,7 +453,7 @@ absDiff:
 
 ​		我们先来看看一些指令， 他们都是根据不同的条件码来判断是否要执行 `MOV` 操作
 
-<img src="img/booblab-12.png" alt="booblab-12" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\booblab-12.png" alt="booblab-12" style="zoom:80%;" />
 
 我们简单演示一下，对于之前的 `absDiff` 函数， 我们可以写成如下的形式， 这个形式实际上和条件传送非常相近：
 
@@ -829,7 +829,7 @@ switch_eg:
 
 这一部分主要是教大家如何调用其他的函数
 
-<img src="img/booblab-13.png" alt="booblab-13" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\booblab-13.png" alt="booblab-13" style="zoom:80%;" />
 
 - CALL指令将返回地址压入栈中，并将PC设置为Q的起始地址
 - RET指令从栈中弹出地址，并把PC设置为返回地址
@@ -842,7 +842,7 @@ switch_eg:
 
 x86-64中寄存器最多可以传递6个整型参数，**寄存器的使用有特殊的顺序（背下面的表）**，寄存器的名字取决于要传递的数据类型的大小
 
-<img src="img/booblab-14.png" alt="booblab-14" style="zoom:80%;" />
+<img src="images\postImg\CSAPP\img\booblab-14.png" alt="booblab-14" style="zoom:80%;" />
 
 如果函数的参数大于6个，超过部分通过栈来传递
 
@@ -986,7 +986,7 @@ call_pos:
 - 返回数组值的操作类型为 `int`，因此涉及 4 字节操作（如 `movl`）和寄存器（如 `%eax`) 。
 - 返回指针的操作类型为 `int *`，因此涉及 8 字节操作（如 `leaq`）和寄存器（如 `%rax`) 。
 
-<img src="img/capter3-extend-2.png" alt="capter3-extend-2"  />
+<img src="images\postImg\CSAPP\img\capter3-extend-2.png" alt="capter3-extend-2"  />
 
 
 
@@ -996,7 +996,7 @@ call_pos:
 
 数组元素在内存中*按照行优先的顺序排列*。
 
-![capter3-extend-3](img/capter3-extend-3.png)
+![capter3-extend-3](images\postImg\CSAPP\img\capter3-extend-3.png)
 
 
 
@@ -1037,7 +1037,7 @@ struct rec {
 
 那么实际上在存储中是这样的结构 :
 
-![capter3-extend-4](img/capter3-extend-4.png)
+![capter3-extend-4](images\postImg\CSAPP\img\capter3-extend-4.png)
 
 当我们要访问其中的一个数据的时候, 假设这个结构体的其实地址存储在 `%rdi` 中
 
@@ -1062,7 +1062,7 @@ movq 8(%rdi) %eax
 - 许多计算机系统对基本数据类型的合法地址做出了一些限制，要求某种类型对象的地址必须是某个值K的倍数。这种对齐限制简化了形成处理器 和内存系统之间接口的硬件设计
 - 对齐的原则是任何K字节的基本对象的地址必须是K的倍数
 
-![capter3-extend-5](img/capter3-extend-5.png)
+![capter3-extend-5](images\postImg\CSAPP\img\capter3-extend-5.png)
 
 编译器在汇编代码中放入命令，指明全局数据所需的对齐。例如，3.6.8节开始的跳转表的汇编代码声明在第2行包含下面的命令：.`align 8`。这就保证了它后面的数据的起始地址是8的倍数，因为每个表项长8个字节，后面的元素都会遵守8字节对齐的限制
 
@@ -1100,9 +1100,9 @@ void echo() {
 
 在这个例子中, 我们调用 `echo` 函数后输入的字符串长度如果过长的话会导致缓冲区溢出
 
-![capter3-extend-6](img/capter3-extend-6.png)
+![capter3-extend-6](images\postImg\CSAPP\img\capter3-extend-6.png)
 
-![capter3-extend-7](img/capter3-extend-7.png)
+![capter3-extend-7](images\postImg\CSAPP\img\capter3-extend-7.png)
 
 
 
@@ -1135,7 +1135,7 @@ Linux 系统中，栈随机化已经变成了标准行为。这类技术称为**
 
 栈保护很好地防止了缓冲区溢出攻击破坏存储在程序栈上的状态。它只会带来很小的性能损失，特别是因为 GCC 只在函数中有局部 `char` 类型缓冲区的时候才插入这样的代码（使用命令行选项 `-fno-stack-protector` 阻止）。
 
-![capter3-extend-8](img/capter3-extend-8.png)
+![capter3-extend-8](images\postImg\CSAPP\img\capter3-extend-8.png)
 
 我们看一下下面的金丝雀值使用实例 :
 
