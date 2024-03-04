@@ -57,5 +57,9 @@ highlighter: rouge    # for code hightlight
 kramdown:
   syntax_highlighter: rouge
 
+relative_links:
+  enabled: true
+  collections: true
+
 
 

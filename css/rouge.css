@@ -5,7 +5,8 @@
 }
 .highlight .err {
   color: #002b36;
-  background-color: #dc322f;
+  /* font-weight: 500; */
+  /* background-color: #dc322f; */
 }
 .highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
   color: #657b83;

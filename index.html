@@ -2,37 +2,59 @@
 layout: default
 ---
 <div id="main">
-  <section>
-    {% for post in site.posts limit:1 %}
-      <header>
-        <h1>{{ post.title }}</h1>
-        <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-      </header>
-      <section>
-        {{ post.content }}
-        <p class="editor-link"><a href="cloudcannon:collections/{{ post.path }}" class="button"><strong>&#9998;</strong> Edit post</a></p>
-      </section>
-    {% endfor %}
-  </section>
-
-  <section>
-    <div class="row">
-      {% for post in site.posts offset:1 %}
-        <article class="{% cycle '6u', '6u$' %} 12u(small)">
+  <div style="font-size: 20px; font-weight: 800;">Blog Directory</div>
+  <div class="bar"></div>
+  <div id="app">
+  <div class="left half">
+        <article>
           <header>
-            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            <h2><a href="{% link _posts/CSAPP/2024-01-02-CSAPP-信息的表示和处理.markdown %}">CSAPP 系列</a></h2>
           </header>
           <section>
-            {{ post.excerpt }}
+            <img src="/assets/categorizeImg/CSAPP.png" alt="CSAPP" class="cateImg">
           </section>
           <footer>
             <ul class="actions">
-              <li><a href="{{ post.url }}" class="button">Read More</a></li>
+              <li><div class="button" @click="vis_CSAPP = true;">Detail</div></li>
               <li class="editor-link"><a href="cloudcannon:collections/{{ post.path }}" class="button"><strong>&#9998;</strong> Edit post</a></li>
             </ul>
           </footer>
         </article>
-      {% endfor %}
-    </div>
-  </section>
+  </div>
+
+  <div class="right half">
+    <article>
+      <header>
+        <h2><a href="{{ post.url }}">Android 开发系列</a></h2>
+      </header>
+      <section>
+        <img src="/assets/categorizeImg/Android.png" alt="CSAPP" class="cateImg">
+      </section>
+      <footer>
+        <ul class="actions">
+          <li><div class="button" @click="vis_CSAPP = true;">Detail</div></li>
+          <li class="editor-link"><a href="cloudcannon:collections/{{ post.path }}" class="button"><strong>&#9998;</strong> Edit post</a></li>
+        </ul>
+      </footer>
+    </article>
+  </div>
+
+  <!-- for bottom click  -->
+  <el-dialog
+    title="CSAPP 系列全文目录" :visible.sync="vis_CSAPP" width="30%">
+    <span>这是一段信息</span>
+  </el-dialog>
+
+  </div>
 </div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        vis_CSAPP : false
+      };
+    },
+  });
+</script>
