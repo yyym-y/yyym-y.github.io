@@ -1,7 +1,6 @@
 ---
 title : "CSAPP - 程序的机器级表示"
 layout : post
-url : /CSAPP/1.md
 ---
 
 ## 前言

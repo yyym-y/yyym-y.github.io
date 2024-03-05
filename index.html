@@ -5,55 +5,108 @@ layout: default
   <div style="font-size: 20px; font-weight: 800;">Blog Directory</div>
   <div class="bar"></div>
   <div id="app">
-  <div class="left half">
+  
+  <div v-for="(line, index) in catagoryInfo" :key="index" class="wrap">
+    {% raw %}
+    <div class="left half">
         <article>
           <header>
-            <h2><a href="{% link _posts/CSAPP/2024-01-02-CSAPP-信息的表示和处理.markdown %}">CSAPP 系列</a></h2>
+            <h2><a :href="line.leftInfo.firstlink">[[ line.leftInfo.title ]]</a></h2>
           </header>
           <section>
-            <img src="/assets/categorizeImg/CSAPP.png" alt="CSAPP" class="cateImg">
+            <img :src="line.leftInfo.titleImg" :alt="line.leftInfo.title" class="cateImg"  @click="catagoryVis[index].leftVis = true;">
           </section>
           <footer>
             <ul class="actions">
-              <li><div class="button" @click="vis_CSAPP = true;">Detail</div></li>
-              <li class="editor-link"><a href="cloudcannon:collections/{{ post.path }}" class="button"><strong>&#9998;</strong> Edit post</a></li>
+              <li><div class="button" @click="catagoryVis[index].leftVis = true;">Detail</div></li>
             </ul>
           </footer>
         </article>
+    </div>
+    <div class="right half">
+      <article>
+        <header>
+          <h2><a :href="line.rightInfo.firstlink">[[ line.rightInfo.title ]]</a></h2>
+        </header>
+        <section>
+          <img :src="line.rightInfo.titleImg" :alt="line.rightInfo.title" class="cateImg" @click="catagoryVis[index].rightVis = true;">
+        </section>
+        <footer>
+          <ul class="actions">
+            <li><div class="button" @click="catagoryVis[index].rightVis = true;">Detail</div></li>
+          </ul>
+        </footer>
+      </article>
+    </div>
+    {% endraw %} 
   </div>
 
-  <div class="right half">
-    <article>
-      <header>
-        <h2><a href="{{ post.url }}">Android 开发系列</a></h2>
-      </header>
-      <section>
-        <img src="/assets/categorizeImg/Android.png" alt="CSAPP" class="cateImg">
-      </section>
-      <footer>
-        <ul class="actions">
-          <li><div class="button" @click="vis_CSAPP = true;">Detail</div></li>
-          <li class="editor-link"><a href="cloudcannon:collections/{{ post.path }}" class="button"><strong>&#9998;</strong> Edit post</a></li>
-        </ul>
-      </footer>
-    </article>
-  </div>
-
+  
   <!-- for bottom click  -->
-  <el-dialog
-    title="CSAPP 系列全文目录" :visible.sync="vis_CSAPP" width="30%">
-    <span>这是一段信息</span>
-  </el-dialog>
+  <div v-for="(each, index) in catagoryDir" :key="index">
+    {% raw %}
+    <el-dialog :title="`${catagoryInfo[index].leftInfo.title}全书目录`" :visible.sync="catagoryVis[index].leftVis" width="27em">
+      <el-timeline>
+        <el-timeline-item
+          v-for="(blog, index) in catagoryDir[index].leftDir"
+          :key="index" :color="point_color"
+          :timestamp="blog.time" >
+            <a class="dir_a" :href="blog.link">[[blog.name]]</a> 
+        </el-timeline-item>
+      </el-timeline>
+    </el-dialog>
+
+    <el-dialog :title="`${catagoryInfo[index].rightInfo.title} 目录`" :visible.sync="catagoryVis[index].rightVis" width="27em">
+      <el-timeline>
+        <el-timeline-item
+          v-for="(blog, index) in catagoryDir[index].rightDir"
+          :key="index" :color="point_color"
+          :timestamp="blog.time" >
+            <a class="dir_a" :href="blog.link">[[blog.name]]</a> 
+        </el-timeline-item>
+      </el-timeline>
+    </el-dialog>
+    {% endraw %}  
+  </div>
 
   </div>
 </div>
 
+
 <script>
   new Vue({
     el: '#app',
+    delimiters: ['[[', ']]'],
     data() {
       return {
-        vis_CSAPP : false
+        point_color : "#0bbd87",
+
+        catagoryInfo : [
+          {
+            leftInfo : {
+              title : "CSAPP 系列", titleImg : "/assets/categorizeImg/CSAPP.png", firstlink : "2023/11/11/CSAPP_note1"
+            },
+            rightInfo : {
+              title : "Android 开发系列", titleImg : "/assets/categorizeImg/Android.png", firstlink : "/2024/02/26/Android_note1"
+            }
+          }
+        ],
+        catagoryVis : [
+          {leftVis : false, rightVis : false}
+        ],
+        catagoryDir : [
+          {
+            leftDir : [
+              {name : "CSAPP - 信息的表示和处理", link : "/2023/11/11/CSAPP_note1", time : "2023-11-11"},
+              {name : "CSAPP - 程序的机器级表示", link : "/2023/11/25/CSAPP_note2", time : "2023-11-25"}
+            ],
+            rightDir : [
+              {name : "chapter1.0-安卓启程", link : "/2024/02/26/Android_note1", time : "2024-02-26"},
+              {name : "chapter2.0-快速入门 Kotlin", link : "/2024/02/28/Android_note2", time : "2024-02-28"},
+              {name : "chapter3.0-Activity初试", link : "2024/03/05/Android_note3", time : "2024-03-05"}
+            ]
+          }
+        ]
       };
     },
   });

@@ -1,6 +1,9 @@
 ---
 title : "CSAPP - 信息的表示和处理"
 layout : post
+ifNext : true
+ifPrevious : null
+nextUrl : "/2024/02/28/Android_note2"
 ---
 
 

@@ -13,15 +13,14 @@
     margin-top: 15px;
     width: 48%;
     height: 200px;
+    display: inline;
 }
 
 .left {
-    float: left;
     margin-left: 3px;
 }
 
 .right {
-    float: right;
     margin-right: 3px;
 }
 
@@ -33,4 +32,14 @@
     width: 100%;
     border-radius: 20px;
     height: 50%;
+}
+
+.wrap {
+    display: flex;
+    justify-content : space-between;
+}
+.dir_a {
+    font-size: 1.4em;
+    margin-top: 10px;
+    color: black;
 }

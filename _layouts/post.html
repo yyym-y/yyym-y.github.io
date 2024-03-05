@@ -14,33 +14,33 @@ layout: default
 
     <footer>
       <div class="row">
-      {% if page.previous %}
+      {% if page.ifPrevious %}
         <article class="{% cycle '6u', '6u$' %} 12u(small) excerpt">
           <header>
-            <h2><a href="{{ page.previous.url }}">{{ page.previous.title }}</a></h2>
+            <h2><a href="{{ page.previousUrl }}">{{ page.previous.title }}</a></h2>
           </header>
           <section>
             {{ page.previous.excerpt }}
           </section>
           <footer>
             <ul class="actions">
-              <li><a href="{{ page.previous.url }}" class="button">Read More</a></li>
+              <li><a href="{{ page.previousUrl }}" class="button">Read More</a></li>
             </ul>
           </footer>
         </article>
       {% endif %}
 
-      {% if page.next %}
+      {% if page.ifNext %}
         <article class="{% cycle '6u', '6u$' %} 12u(small) excerpt f-right">
           <header>
-            <h2><a href="{{ page.next.url }}">{{ page.next.title }}</a></h2>
+            <h2><a href="{{ page.nextUrl }}">{{ page.next.title }}</a></h2>
           </header>
           <section>
             {{ page.next.excerpt | markdownify }}
           </section>
           <footer>
             <ul class="actions">
-              <li><a href="{{ page.next.url }}" class="button">Read More</a></li>
+              <li><a href="{{ page.nextUrl }}" class="button">Read More</a></li>
             </ul>
           </footer>
         </article>
