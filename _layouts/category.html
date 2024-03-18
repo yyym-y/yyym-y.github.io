@@ -1,0 +1,93 @@
+---
+layout: default
+---
+<div id="main">
+  <div style="font-size: 20px; font-weight: 800;">Blog Directory</div>
+  <div class="bar"></div>
+  <div id="app">
+  {{ content }}
+  <div v-for="(line, index) in catagoryInfo" :key="'catagoryInfo-' + index" class="wrap">
+    {% raw %}
+    <div class="left half">
+        <article>
+          <header>
+            <h2><a :href="line.leftInfo.firstlink">[[ line.leftInfo.title ]]</a></h2>
+          </header>
+          <section>
+            <img :src="line.leftInfo.titleImg" :alt="line.leftInfo.title" class="cateImg"  @click="catagoryVis[index].leftVis = true;">
+          </section>
+          <footer>
+            <ul class="actions">
+              <li><div class="button" @click="catagoryVis[index].leftVis = true;">Detail</div></li>
+            </ul>
+          </footer>
+        </article>
+    </div>
+
+    
+    <div class="right half">
+      <div v-if="catagoryVis[index].rightVis != null">
+      <article>
+        <header>
+          <h2><a :href="line.rightInfo.firstlink">[[ line.rightInfo.title ]]</a></h2>
+        </header>
+        <section>
+          <img :src="line.rightInfo.titleImg" :alt="line.rightInfo.title" class="cateImg" @click="catagoryVis[index].rightVis = true;">
+        </section>
+        <footer>
+          <ul class="actions">
+            <li><div class="button" @click="catagoryVis[index].rightVis = true;">Detail</div></li>
+          </ul>
+        </footer>
+      </article>
+    </div>
+    </div>
+    {% endraw %} 
+  </div>
+
+  
+  <!-- for bottom click  -->
+  <div v-for="(each, index) in catagoryDir" :key="'catagoryDir-' + index">
+    {% raw %}
+    <el-dialog :title="`${catagoryInfo[index].leftInfo.title}全书目录`" :visible.sync="catagoryVis[index].leftVis" width="27em">
+      <el-timeline>
+        <el-timeline-item
+          v-for="(blog, index) in catagoryDir[index].leftDir"
+          :key="index" :color="point_color"
+          :timestamp="blog.time" >
+            <a class="dir_a" :href="blog.link">[[blog.name]]</a> 
+        </el-timeline-item>
+      </el-timeline>
+    </el-dialog>
+
+    <div v-if="catagoryVis[index].rightVis != null">
+    <el-dialog :title="`${catagoryInfo[index].rightInfo.title} 目录`" :visible.sync="catagoryVis[index].rightVis" width="27em">
+      <el-timeline>
+        <el-timeline-item
+          v-for="(blog, index) in catagoryDir[index].rightDir"
+          :key="index" :color="point_color"
+          :timestamp="blog.time" >
+            <a class="dir_a" :href="blog.link">[[blog.name]]</a> 
+        </el-timeline-item>
+      </el-timeline>
+    </el-dialog>
+    </div>
+    {% endraw %}  
+  </div>
+
+  </div>
+</div>
+
+<script src="../js/categoryData.js" type="module"></script>
+<script type="module">
+    import data from '../js/categoryData.js';
+    new Vue({
+        el: '#app',
+        delimiters: ['[[', ']]'],
+        data() {
+            return data
+        },
+    });
+</script>
+
+
