@@ -1,4 +1,14 @@
-# CSAPP-链接
+---
+title : "CSAPP - 链接"
+layout : post
+ifNext : true
+ifPrevious : true
+previousUrl : "/2024/01/14/CSAPP_note4"
+previousTitle : "CSAPP - 存储器层次结构"
+nextUrl : "/2023/12/13/CSAPP_note6"
+nextTitle : "CSAPP - 异常控制流"
+---
+
 
 ## 链接概述
 
@@ -55,11 +65,11 @@ int sum(int* a, int n) {
 
 编译器在执行上述过程的具体流程如下图所示
 
-<img src="img/link-0.png" alt="link-0" style="zoom: 80%;" />
+<img src="/assets/images/CSAPP/img/link-0.png" alt="link-0" style="zoom: 80%;" />
 
 我们再将整个过程细化一下：
 
-<img src="img/link-1.png" alt="link-1" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/link-1.png" alt="link-1" style="zoom:80%;" />
 
 > **Stage1**
 >
@@ -220,7 +230,7 @@ void func(int sum) {
 
 我们把可重定向文件分为三个部分
 
-<img src="img/link-2.png" alt="link-2"  />
+<img src="/assets/images/CSAPP/img/link-2.png" alt="link-2"  />
 
 ELF 是 可执行可链接格式的缩写(Executable and Linkable Format)
 
@@ -864,13 +874,13 @@ int main()
 
 在符号解析阶段, 链接器从左到右扫描可重定向文件和静态库文件
 
-![link-3](img/link-3.png)
+![link-3](/assets/images/CSAPP/img/link-3.png)
 
 > 链接器会隐式的传递 `libc.a` , 所以不用每次都把 `libc.a` 写上
 
 在扫描的过程中, 链接器会维护三个集合
 
-<img src="img/link-4.png" alt="link-4"  />
+<img src="/assets/images/CSAPP/img/link-4.png" alt="link-4"  />
 
 > E : 扫描过程中的重定向文件的集合
 >
@@ -894,7 +904,7 @@ int main()
 
 所以集合变为 :
 
-![link-5](img/link-5.png)
+![link-5](/assets/images/CSAPP/img/link-5.png)
 
 之后再扫描 `libvectoer.a` , 链接器会依次扫描静态库中的所有可执行文件, 发现可以填补 `U` 集合中的符合, 就会将这个可重定向文件移动到 `E` 集合, 同时删去 `U` 集合中对应的符号, 添加对应的  `D` 符号
 
@@ -1121,7 +1131,7 @@ $$
 
 ​		因为使用的是共享库, 所以, `libvector.so` 中的代码和数据并没有真正的复制到可执行文件 `prog3` 中 , 只是复制符号表和重定位信息 , 当执行 `prog3` 的时候, 加载器会发现这个可执行文件中存在一个名为 `.interp` 的 `section` , 这个 `section` 包含了动态链接器的路径名, 这个动态链接器其实也是一个共享目标文件（共享库）, 接下加载器会将动态链接器加载到内存中, 由这个动态链接器执行重定位代码和数据的工作
 
-![link-6](img/link-6.png)
+![link-6](/assets/images/CSAPP/img/link-6.png)
 
 ​		上述过程是在可执行文件加载到内存中但是没有执行的情况, 这种情况下,当上述操作完成后, 动态库的内容将无法发生改变了, 但是我们有些时候需要再执行的过程中链接动态库
 

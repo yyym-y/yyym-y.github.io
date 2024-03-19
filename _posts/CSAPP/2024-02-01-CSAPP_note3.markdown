@@ -1,4 +1,14 @@
-# CSAPP-处理器体系结构
+---
+title : "CSAPP - 处理器体系结构"
+layout : post
+ifNext : true
+ifPrevious : true
+previousUrl : "/2023/11/25/CSAPP_note2"
+previousTitle : "CSAPP - 程序的机器级表示"
+nextUrl : "/2024/01/14/CSAPP_note4"
+nextTitle : "CSAPP - 存储器层次结构"
+---
+
 
 ## 前言
 
@@ -29,7 +39,7 @@ ISA在编译器编写者（CPU软件）和处理器设计人员（CPU硬件）�
 
 Y86-64 有以下的可见单元 :
 
-<img src="img/CPU-0.png" alt="CPU-0" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-0.png" alt="CPU-0" style="zoom:80%;" />
 
 * 15个程序寄存器。每个程序寄存器存储一个 64 位的字。寄存器 %rsp 被入栈、出栈、调用和返回指令作为栈指针。
 
@@ -68,7 +78,7 @@ Y86-64 有以下的可见单元 :
 
 * `halt` 指令停止指令的执行，执行 `halt` 指令会导致处理器停止，并将状态码设置为 `HLT`
 
-<img src="img/CPU-1.png" alt="CPU-1" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-1.png" alt="CPU-1" style="zoom:80%;" />
 
 
 
@@ -83,11 +93,11 @@ Y86-64 有以下的可见单元 :
 
 具体的使用如下图, 这样我们就能够在前 $8$ 个 bit 就准确区分是哪个指令了
 
-<img src="img/CPU-2.png" alt="CPU-2" style="zoom: 80%;" />
+<img src="/assets/images/CSAPP/img/CPU-2.png" alt="CPU-2" style="zoom: 80%;" />
 
 除此之外, 我们还需要对寄存器进行编号, 这样我们就可以识别我们要执行操作的寄存器具体是哪一个
 
-<img src="img/CPU-3.png" alt="CPU-3" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-3.png" alt="CPU-3" style="zoom:80%;" />
 
 值得注意的是 $\mathrm{0xF}$ : 一个二进制指令编码的第 $9 \sim 16$ 位是用来表示这条指令操作的两个寄存器的, 但有些指令是只操作一个寄存器的, 这个时候就需要将高 $4$ 位或者低 $4$ 位设置成 $\mathrm{0xF}$ 代表只有一个寄存器操作
 
@@ -97,7 +107,7 @@ Y86-64 有以下的可见单元 :
 
 Y86-64 的异常表示是使用 `stat` 码:
 
-<img src="img/CPU-4.png" alt="CPU-4" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-4.png" alt="CPU-4" style="zoom:80%;" />
 
 
 
@@ -118,7 +128,7 @@ HCL 语言只表达硬件设计的控制部分，只有有限的操作集合，�
 
 逻辑门是数字电路的基本计算单元。它们产生的输出，等于它们输入位值的某个布尔函数。
 
-<img src="img/CPU-5.png" alt="CPU-5" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-5.png" alt="CPU-5" style="zoom:80%;" />
 
 
 
@@ -147,7 +157,7 @@ HCL 语言只表达硬件设计的控制部分，只有有限的操作集合，�
 图4-11: bool out = (s && a) || (!s && b)
 ```
 
-<img src="img/CPU-6.png" alt="CPU-6" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-6.png" alt="CPU-6" style="zoom:80%;" />
 
 图4-10 是简单组合电路, 而图4-11 是多路复用器（通常称为`MUX`）
 
@@ -161,7 +171,7 @@ HCL 语言只表达硬件设计的控制部分，只有有限的操作集合，�
 
 在画字级电路的时候，我们用中等粗度的线来表示携带字的每个位的线路，而用虚线来表示布尔信号结果。
 
-<img src="img/CPU-7.png" alt="CPU-7" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-7.png" alt="CPU-7" style="zoom:80%;" />
 
 HCL 表达式为 : 
 
@@ -183,13 +193,13 @@ bool Eq = (A == B)
 ]
 ```
 
-<img src="img/CPU-8.png" alt="CPU-8" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-8.png" alt="CPU-8" style="zoom:80%;" />
 
 对于我们本节的重点是**算术逻辑单元(ALU)**
 
 **算术/逻辑单元**（ALU）是一种很重要的组合电路。这个电路有三个输入：标号为 A 和 B 的两个数据输入，以及一个控制输入。根据控制输入的设置，电路会对数据输入执行不同的算术或逻辑操作，而控制值和指令集支持的四种不同的整数操作的功能码相对应。
 
-<img src="img/CPU-9.png" alt="CPU-9" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-9.png" alt="CPU-9" style="zoom:80%;" />
 
 
 
@@ -231,7 +241,7 @@ bool s0 = code in {1, 3};
 
 这就说明只有时钟上升的时候, CC, PC, Stat 和寄存器的值才会发生变化
 
-<img src="img/CPu-10.png" alt="CPu-10" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPu-10.png" alt="CPu-10" style="zoom:80%;" />
 
 
 
@@ -241,7 +251,7 @@ bool s0 = code in {1, 3};
 
 一个典型的寄存器文件，寄存器文件有两个**读端口**（A 和 B），还有一个**写端口**（W) 。这样一个多端口随机访问存储器允许同时进行多个读和写操作。每个端口都有一个地址输入，表明该选择哪个程序寄存器。向寄存器文件写入字是由时钟信号控制的，控制方式类似于将值加载到时钟寄存器：
 
-<img src="img/CPU-11.png" alt="CPU-11" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-11.png" alt="CPU-11" style="zoom:80%;" />
 
 
 
@@ -278,13 +288,13 @@ bool s0 = code in {1, 3};
 
 我们用下面这段代码来来实际模拟一下上面的过程 :
 
-<img src="img/CPU-12.png" alt="CPU-12" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-12.png" alt="CPU-12" style="zoom:80%;" />
 
 > 跟踪 `subq` 指令的执行
 >
 > 我们跟踪第 3 行中的 subq 指令。可以看到前面两条指令分别将寄存器号 `%rdx` 和号 `%rbx` 初始化成 $9$ 和 $21$。我们还能看到指令位于地址 $\mathrm{0x02a}$，由两个字节组成，值分别为 $\mathrm{0x61}$ 和 $\mathrm{0x23}$。这条指令处理的各个阶段如下表所示，左边列出了处理一个 `OPq` 指令的通用的规则，而右边列出的是对这条具体指令的计算。
 >
-> <img src="img/CPU-13.png" alt="CPU-13" style="zoom:80%;" />
+> <img src="/assets/images/CSAPP/img/CPU-13.png" alt="CPU-13" style="zoom:80%;" />
 >
 > 这个跟踪表明我们达到了理想的效果，寄存器号 `%rbx` 设成了 $12$，三个条件码都设成了 $0$ ，而 `PC` 加了 $2$。
 
@@ -296,7 +306,7 @@ bool s0 = code in {1, 3};
 >
 > 可以看到，前面的指令已将寄存器 `%rsp` 初始化成了 $128$ ，而 `%rbx` 仍然是 `subq` 指令(第 3 行) 算出来的结果 $12$。我们还可以看到，指令位于地址 $\mathrm{0x020}$，有 $10$ 个字节。前两个的值为 $\mathrm{0x40}$ 和 $\mathrm{0x43}$，后 $8$ 个是数字 $\mathrm{0x0000000000000064}$ (十进制数 100)按字节反过来得到的数。各个阶段的处理如下 :
 >
-> <img src="img/CPU-14.png" alt="CPU-14" style="zoom:80%;" />
+> <img src="/assets/images/CSAPP/img/CPU-14.png" alt="CPU-14" style="zoom:80%;" />
 >
 > 跟踪记录表明这条指令的效果就是将 $128$ 写入内存地址 $112$，并将 `PC` 加 $10$
 
@@ -308,7 +318,7 @@ bool s0 = code in {1, 3};
 
 我们将整个 SEQ 硬件结构绘制在下图, 等本节全部学完可以对照进行复习
 
-<img src="img/CPU-15.png" alt="CPU-15" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-15.png" alt="CPU-15" style="zoom:80%;" />
 
 ​		一个时钟变化会引发一个经过组合逻辑的流，来执行整个指令。组合逻辑电路与时序电路不同，不存储任何信息，只是简单地响应输入信号，产生符合组合逻辑的输出，如果输入信号再次更新，则输出也会跟着变化，**并不会**将先前的输出存下来，时序电路则有专门的存储设备将输出保存下来。
 
@@ -332,11 +342,11 @@ bool s0 = code in {1, 3};
 
 以下是汇编代码，SEQ硬件处理其中的3、4行指令：
 
-<img src="img/CPU-16.png" alt="CPU-16" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-16.png" alt="CPU-16" style="zoom:80%;" />
 
 ​		跟踪SEQ的两个执行周期，每个周期开始时，状态单元（寄存器和内存）是根据前一条执行设置的，信号传播通过组合逻辑，创建出新的状态单元的值，在下一个周期开始时（时钟上升），这些值会被加载到状态单元。如下图中，当周期3开始时，上升前状态单元中的值是周期1组合逻辑创建，上升后状态单元被修改该为周期2组合逻辑创建；当周期3结束时，状态单元保持不变，周期四开始时（上升后），状态单元时周期3组合逻辑创建
 
-<img src="img/CPU-17.png" alt="CPU-17" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-17.png" alt="CPU-17" style="zoom:80%;" />
 
 
 
@@ -368,7 +378,7 @@ bool s0 = code in {1, 3};
 
 在现代逻辑设计中，电路延迟以**皮秒**（picosecond，简写成 “ps”），也就是 $10^{−12}$ 秒为单位来计算。
 
-<img src="img/CPU-18.png" alt="CPU-18" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-18.png" alt="CPU-18" style="zoom:80%;" />
 
 如上图, 当我们完成一条指令就需要 $\mathrm{300ps}$ 的延迟, 之后花费 $\mathrm{20ps}$ 的时间将结果放入寄存器, 这样整个过程才算结束
 
@@ -382,7 +392,7 @@ $$
 $$
 ​		但如果我们将系统执行的计算分成三个阶段 `A B C`。然后在各个阶段之间放上**流水线寄存器**（pipeline register），这样每条指令都会按照三步经过这个系统，从头到尾需要三个完整的时钟周期。在稳定状态下，三个阶段都应该是活动的，每个时钟周期，一条指令离开系统，一条新的进人。
 
-<img src="img/CPU-19.png" alt="CPU-19" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-19.png" alt="CPU-19" style="zoom:80%;" />
 
 我们将系统吞吐量提高到原来的 `2.67` 倍，代价是增加了一些硬件，以及延迟的少量增加 `1.12` 倍。延迟变大是由于增加的流水线寄存器的时间开销。
 $$
@@ -396,7 +406,7 @@ $$
 
 > $\mathrm{120ps}$ 是按照上图得出的结果, 因为每个步骤的延时都是 $\mathrm{120ps}$
 
-<img src="img/CPU-20.png" alt="CPU-20" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-20.png" alt="CPU-20" style="zoom:80%;" />
 
 ​		这种在组合逻辑块之间采用时钟寄存器的简单机制（当时钟上升时，输入被加载到流水线寄存器中，成为寄存器的输出），足够控制流水线中的指令流。随着时钟周而复始地上升和下降，不同的指令就会通过流水线的各个阶段，不会相互干扰。
 
@@ -409,7 +419,7 @@ $$
 
 我们简单分析一下 $\mathrm{239ps\sim359ps}$ 的上述流水线的过程
 
-<img src="img/CPU-21.png" alt="CPU-21" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-21.png" alt="CPU-21" style="zoom:80%;" />
 
 * $\mathrm{Time = 239}$
 
@@ -441,7 +451,7 @@ $$
 
 对硬件设计者来说，将系统计算设计划分成一组具有相同延迟的阶段是一个严峻的挑战。通常，处理器中的某些硬件单元，如 ALU 和内存，是不能被划分成多个延迟较小的单元的。
 
-<img src="img/CPU-22.png" alt="CPU-22" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-22.png" alt="CPU-22" style="zoom:80%;" />
 
 #### 流水线过深，收益反而下降
 
@@ -453,7 +463,7 @@ $$
 - 电路设计者小心地设计流水线寄存器，使其延迟尽可能得小。
 - 芯片设计者也必须小心地设计时钟传播网络，以保证时钟在整个芯片上同时改变。
 
-<img src="img/CPU-23.png" alt="CPU-23" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-23.png" alt="CPU-23" style="zoom:80%;" />
 
 ### 带反馈的流水线系统
 
@@ -491,7 +501,7 @@ targ:
 
 将流水线引入含有反馈路径的系统中的危险。在一个三阶段流水线，我们将改变系统的行为
 
-<img src="img/CPU-24.png" alt="CPU-24" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-24.png" alt="CPU-24" style="zoom:80%;" />
 
 **我们在流水线中一般不使用反馈**
 
@@ -509,7 +519,7 @@ targ:
 
 `SEQ` 到 `SEQ+` 中对状态单元的改变是一种很通用的改进的例子，这种改进称为**电路重定时**（circuit retiming）。重定时改变了一个系统的状态表示，但是并不改变它的逻辑行为。通常用它来平衡一个流水线系统中各个阶段之间的延迟。
 
-<img src="img/CPU-25.png" alt="CPU-25" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-25.png" alt="CPU-25" style="zoom:80%;" />
 
 > **为什么要把PC移动到时钟周期之前以及它的影响**
 >
@@ -539,7 +549,7 @@ targ:
 
 插入流水线寄存器，并对信号重新排列，得到 `PIPE-` 处理器。流水线寄存器用黑色方框表示，每个寄存器包括不同的字段，用白色方框表示。
 
-<img src="img/CPU-26.png" alt="CPU-26" style="zoom:80%;" />
+<img src="/assets/images/CSAPP/img/CPU-26.png" alt="CPU-26" style="zoom:80%;" />
 
 - `F`  : 保存程序计数器的预测值。
 

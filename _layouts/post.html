@@ -17,10 +17,12 @@ layout: default
       {% if page.ifPrevious %}
         <article class="{% cycle '6u', '6u$' %} 12u(small) excerpt">
           <header>
-            <h2><a href="{{ page.previousUrl }}">{{ page.previous.title }}</a></h2>
+            <h2><a href="{{ page.previousUrl }}">
+              <img src="/assets/basic/prev.png" alt="pre" style="width: 20px; height: 20px; transform: translateY(2px);">
+              {{ page.previousTitle }}</a></h2>
           </header>
           <section>
-            {{ page.previous.excerpt }}
+            <!-- img -->
           </section>
           <footer>
             <ul class="actions">
@@ -33,10 +35,13 @@ layout: default
       {% if page.ifNext %}
         <article class="{% cycle '6u', '6u$' %} 12u(small) excerpt f-right">
           <header>
-            <h2><a href="{{ page.nextUrl }}">{{ page.next.title }}</a></h2>
+            <h2><a href="{{ page.nextUrl }}">
+              {{ page.nextTitle }}
+              <img src="/assets/basic/next.png" alt="next" style="width: 30px; height: 30px; transform: translateY(5px);">
+              </a></h2>
           </header>
           <section>
-            {{ page.next.excerpt | markdownify }}
+            <!-- img -->
           </section>
           <footer>
             <ul class="actions">

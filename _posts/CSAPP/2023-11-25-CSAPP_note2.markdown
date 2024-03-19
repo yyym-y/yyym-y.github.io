@@ -1,6 +1,12 @@
 ---
 title : "CSAPP - 程序的机器级表示"
 layout : post
+ifNext : true
+ifPrevious : true
+previousUrl : "/2023/11/11/CSAPP_note1"
+previousTitle : "CSAPP - 信息的表示和处理"
+nextUrl : "/2024/02/01/CSAPP_note3"
+nextTitle : "CSAPP - 处理器体系结构"
 ---
 
 ## 前言
@@ -699,7 +705,7 @@ while (判断条件)
 switch {
     case 1:
         语句
-        break;
+    break;
     ....
     default:
         语句
@@ -717,7 +723,7 @@ void switch_eg(long x, long n, long *dest) {
 			break; 
 		case 102: 
 			val += 10; 
-			/* Fall through */ 
+			/* Fall through */
 		case 103: 
 			val += 11; 
 			break; 

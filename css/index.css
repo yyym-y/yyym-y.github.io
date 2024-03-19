@@ -43,3 +43,6 @@
     margin-top: 10px;
     color: black;
 }
+.icon_arrow {
+    width: 20px; height: 20px; transform: translateY(2px);
+}

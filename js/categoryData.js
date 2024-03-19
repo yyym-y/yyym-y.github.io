@@ -25,7 +25,12 @@ export default {
       { // 第一层目录
         leftDir : [
           {name : "CSAPP - 信息的表示和处理", link : "/2023/11/11/CSAPP_note1", time : "2023-11-11"},
-          {name : "CSAPP - 程序的机器级表示", link : "/2023/11/25/CSAPP_note2", time : "2023-11-25"}
+          {name : "CSAPP - 程序的机器级表示", link : "/2023/11/25/CSAPP_note2", time : "2023-11-25"},
+          {name : "CSAPP - 处理器体系结构", link : "/2024/02/01/CSAPP_note3", time : "2024-02-01"},
+          {name : "CSAPP - 存储器层次结构", link : "/2024/01/14/CSAPP_note4", time : "2024-01-14"},
+          {name : "CSAPP - 链接", link : "/2023/12/02/CSAPP_note5", time : "2023-12-02"},
+          {name : "CSAPP - 异常控制流", link : "/2023/12/13/CSAPP_note6", time : "2023-12-13"},
+          {name : "CSAPP - 虚拟内存", link : "/2024/01/22/CSAPP_note7", time : "2024-01-22"}
         ],
         rightDir : [
           {name : "chapter1.0-安卓启程", link : "/2024/02/26/Android_note1", time : "2024-02-26"},
