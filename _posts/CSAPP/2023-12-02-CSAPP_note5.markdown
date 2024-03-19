@@ -1,6 +1,8 @@
 ---
 title : "CSAPP - 链接"
 layout : post
+githubUrl : ""
+pdfUrl : "/pdf/CSAPP/CSAPP-链接.pdf"
 ifNext : true
 ifPrevious : true
 previousUrl : "/2024/01/14/CSAPP_note4"

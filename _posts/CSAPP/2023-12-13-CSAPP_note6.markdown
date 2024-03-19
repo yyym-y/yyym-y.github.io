@@ -1,6 +1,8 @@
 ---
 title : "CSAPP - 异常控制流"
 layout : post
+githubUrl : ""
+pdfUrl : "/pdf/CSAPP/CSAPP-异常控制流.pdf"
 ifNext : true
 ifPrevious : true
 previousUrl : "/2023/12/02/CSAPP_note5"

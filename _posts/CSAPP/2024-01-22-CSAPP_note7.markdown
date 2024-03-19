@@ -1,6 +1,8 @@
 ---
 title : "CSAPP - 虚拟内存"
 layout : post
+githubUrl : ""
+pdfUrl : "/pdf/CSAPP/CSAPP-虚拟内存.pdf"
 ifNext : null
 ifPrevious : true
 previousUrl : "/2023/12/13/CSAPP_note6"

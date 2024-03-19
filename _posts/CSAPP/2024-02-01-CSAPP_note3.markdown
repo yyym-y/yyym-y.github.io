@@ -1,6 +1,8 @@
 ---
 title : "CSAPP - 处理器体系结构"
 layout : post
+githubUrl : ""
+pdfUrl : "/pdf/CSAPP/CSAPP-处理器体系结构.pdf"
 ifNext : true
 ifPrevious : true
 previousUrl : "/2023/11/25/CSAPP_note2"
