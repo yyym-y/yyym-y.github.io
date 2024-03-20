@@ -1,7 +1,7 @@
 ---
 title : "CSAPP - 处理器体系结构"
 layout : post
-githubUrl : ""
+githubUrl : "https://github.com/yyym-y/CMU-CSAPP/blob/master/note/booknote/CSAPP-%E5%A4%84%E7%90%86%E5%99%A8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84.md"
 pdfUrl : "/pdf/CSAPP/CSAPP-处理器体系结构.pdf"
 ifNext : true
 ifPrevious : true

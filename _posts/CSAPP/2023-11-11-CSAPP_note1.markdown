@@ -1,6 +1,6 @@
 ---
 title : "CSAPP - 信息的表示和处理"
-githubUrl : ""
+githubUrl : "https://github.com/yyym-y/CMU-CSAPP/blob/master/note/booknote/CSAPP-%E4%BF%A1%E6%81%AF%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%A4%84%E7%90%86.md"
 pdfUrl : "/pdf/CSAPP/CSAPP-信息的表示和处理.pdf"
 layout : post
 ifNext : true

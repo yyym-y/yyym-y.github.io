@@ -1,7 +1,7 @@
 ---
 title : "CSAPP - 异常控制流"
 layout : post
-githubUrl : ""
+githubUrl : "https://github.com/yyym-y/CMU-CSAPP/blob/master/note/booknote/CSAPP-%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81.md"
 pdfUrl : "/pdf/CSAPP/CSAPP-异常控制流.pdf"
 ifNext : true
 ifPrevious : true

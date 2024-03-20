@@ -1,7 +1,7 @@
 ---
 title : "CSAPP - 链接"
 layout : post
-githubUrl : ""
+githubUrl : "https://github.com/yyym-y/CMU-CSAPP/blob/master/note/booknote/CSAPP-%E9%93%BE%E6%8E%A5.md"
 pdfUrl : "/pdf/CSAPP/CSAPP-链接.pdf"
 ifNext : true
 ifPrevious : true

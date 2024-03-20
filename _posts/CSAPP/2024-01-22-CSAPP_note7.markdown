@@ -1,7 +1,7 @@
 ---
 title : "CSAPP - 虚拟内存"
 layout : post
-githubUrl : ""
+githubUrl : "https://github.com/yyym-y/CMU-CSAPP/blob/master/note/booknote/CSAPP-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98.md"
 pdfUrl : "/pdf/CSAPP/CSAPP-虚拟内存.pdf"
 ifNext : null
 ifPrevious : true
