@@ -9,6 +9,9 @@ previousUrl : "/2024/02/01/CSAPP_note3"
 previousTitle : "CSAPP - 处理器体系结构"
 nextUrl : "/2023/12/02/CSAPP_note5"
 nextTitle : "CSAPP - 链接"
+nextCover : "/assets/cover/CSAPP/note5.jpg"
+prevCover : "/assets/cover/CSAPP/note3.jpg"
+cover : "/assets/cover/CSAPP/note4.jpg"
 ---
 
 ## 局部性

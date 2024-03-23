@@ -7,6 +7,8 @@ ifNext : true
 ifPrevious : null
 nextUrl : "/2023/11/25/CSAPP_note2"
 nextTitle : "CSAPP - 程序的机器级表示"
+nextCover : "/assets/cover/CSAPP/note2.jpg" 
+cover : "/assets/cover/CSAPP/note1.jpg"
 ---
 
 

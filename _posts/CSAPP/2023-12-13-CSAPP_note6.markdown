@@ -7,8 +7,11 @@ ifNext : true
 ifPrevious : true
 previousUrl : "/2023/12/02/CSAPP_note5"
 previousTitle : "CSAPP - 链接"
+prevCover : "/assets/cover/CSAPP/note5.jpg"
 nextUrl : "/2024/01/22/CSAPP_note7"
 nextTitle : "CSAPP - 虚拟内存"
+nextCover : "/assets/cover/CSAPP/note7.jpg"
+cover : "/assets/cover/CSAPP/note6.jpg"
 ---
 
 

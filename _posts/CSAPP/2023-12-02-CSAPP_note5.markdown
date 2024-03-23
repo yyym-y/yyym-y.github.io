@@ -9,6 +9,9 @@ previousUrl : "/2024/01/14/CSAPP_note4"
 previousTitle : "CSAPP - 存储器层次结构"
 nextUrl : "/2023/12/13/CSAPP_note6"
 nextTitle : "CSAPP - 异常控制流"
+nextCover : "/assets/cover/CSAPP/note6.jpg"
+prevCover : "/assets/cover/CSAPP/note4.jpg"
+cover : "/assets/cover/CSAPP/note5.jpg"
 ---
 
 

@@ -9,6 +9,9 @@ previousUrl : "/2023/11/25/CSAPP_note2"
 previousTitle : "CSAPP - 程序的机器级表示"
 nextUrl : "/2024/01/14/CSAPP_note4"
 nextTitle : "CSAPP - 存储器层次结构"
+nextCover : "/assets/cover/CSAPP/note4.jpg"
+prevCover : "/assets/cover/CSAPP/note2.jpg"
+cover : "/assets/cover/CSAPP/note3.jpg"
 ---
 
 

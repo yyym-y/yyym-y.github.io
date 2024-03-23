@@ -9,6 +9,9 @@ previousUrl : "/2023/11/11/CSAPP_note1"
 previousTitle : "CSAPP - 信息的表示和处理"
 nextUrl : "/2024/02/01/CSAPP_note3"
 nextTitle : "CSAPP - 处理器体系结构"
+nextCover : "/assets/cover/CSAPP/note3.jpg"
+prevCover : "/assets/cover/CSAPP/note1.jpg"
+cover : "/assets/cover/CSAPP/note2.jpg"
 ---
 
 ## 前言
