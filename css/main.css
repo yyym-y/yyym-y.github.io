@@ -44,7 +44,9 @@ body {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    user-select:none;
 }
+
 
 .container {
     margin-left: auto;
@@ -3043,9 +3045,26 @@ body.is-touch .poptrox-popup .closer {
 
 .editable {
     border-width: 0cap;
+}   
+
+#markdown-toc {
+    position: fixed;
+    bottom: 50px; 
+    right: 0;
+    padding: 30px 30px 30px 30px;
+    padding-top: 10px;
+    background-color: rgb(255, 254, 247);
+    border: solid;
+    border-width: 1px;
+    border-radius: 20px;
+    border-color: gray;
+    visibility : hidden;
 }
 
-/* cover img */
-.coverImg {
-    
+#munuButton {
+    position: fixed;
+    bottom: 20px; 
+    right: 20px;
+    width: 50px;
+    height: 50px;
 }

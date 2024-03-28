@@ -53,9 +53,10 @@ social_icons:
 
 
 markdown: kramdown
+auto_ids: true
+toc_levels: 1..6
+
 highlighter: rouge    # for code hightlight
-kramdown:
-  syntax_highlighter: rouge
 
 relative_links:
   enabled: true

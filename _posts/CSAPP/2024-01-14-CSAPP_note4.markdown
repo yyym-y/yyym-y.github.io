@@ -13,6 +13,8 @@ nextCover : "/assets/cover/CSAPP/note5.jpg"
 prevCover : "/assets/cover/CSAPP/note3.jpg"
 cover : "/assets/cover/CSAPP/note4.jpg"
 ---
+* awsl
+{:toc}
 
 ## 局部性
 

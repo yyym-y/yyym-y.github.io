@@ -10,7 +10,8 @@ nextTitle : "CSAPP - 程序的机器级表示"
 nextCover : "/assets/cover/CSAPP/note2.jpg" 
 cover : "/assets/cover/CSAPP/note1.jpg"
 ---
-
+* awsl
+{:toc}
 
 ## **前言**
 
@@ -528,7 +529,7 @@ IEEE浮点标准用 $V = (-1)^s \times M \times 2^E$ 来表示一个数
       >
       > 那么尾数 $W = 1 + frac = 1 + f_1 + f_2 + \dots + f_n$
       > 
-      > 其次阶码的值为 $E = e - Bias$
+      > 其次阶码的值为 $E = e - Bias\quad[Bias = 2^{k - 1} - 1]$
 
 * 当  $exp$ 的位模式全为 $0$ （即数值为 $0$）的时候
   
@@ -536,7 +537,7 @@ IEEE浮点标准用 $V = (-1)^s \times M \times 2^E$ 来表示一个数
   >
   > 这个时候的 $frac$ 不包括 $1$ , 即尾数 $W = frac = \{f_1 + f_2 + \dots + f_n\}$
   >
-  > 其次阶码的值为 $E = 1 - Bias$
+  > 其次阶码的值为 $E = 1 - Bias\quad[Bias = 2^{k - 1} - 1]$
 
 * 当  $exp$ 的位模式全为 $1$ （单精度数值为 $255$， 双精度为 $2047$）的时候
 
