@@ -12,7 +12,7 @@ export default {
       },
       { // 第二层信息
         leftInfo : {
-          title : "计算机网络系列", titleImg : "/assets/categorizeImg/ComputerNetwork.png", firstlink : "2023/11/11/CSAPP_note1"
+          title : "计算机网络系列", titleImg : "/assets/categorizeImg/ComputerNetwork.png", firstlink : "/2024/03/30/ComputerNetwork_note6"
         },
         rightInfo : null
       }
@@ -34,12 +34,13 @@ export default {
         ],
         rightDir : [
           {name : "chapter1.0-安卓启程", link : "/2024/02/26/Android_note1", time : "2024-02-26"},
-          {name : "chapter2.0-快速入门 Kotlin", link : "/2024/02/28/Android_note2", time : "2024-02-28"},
+          {name : "chapter2.0-快速入门 K/otlin", link : "/2024/02/28/Android_note2", time : "2024-02-28"},
           {name : "chapter3.0-Activity初试", link : "2024/03/05/Android_note3", time : "2024-03-05"}
         ]
       },
       { // 第二层目录
         leftDir : [
+          {name : "chapter6.0 - 物理层", link : "/2024/03/30/ComputerNetwork_note6", time : "2024-03-30"}
         ],
         rightDir : null
       }
