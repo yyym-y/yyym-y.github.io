@@ -2,7 +2,7 @@
 layout : post
 title : "chapter6.0 - 物理层"
 githubUrl : "https://github.com/yyym-y/note/blob/master/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88Network%EF%BC%89/chapter6.0-%E7%89%A9%E7%90%86%E5%B1%82.md"
-pdfUrl : "ComputerNetwork/chapter6.0-物理层.pdf"
+pdfUrl : "/pdf/ComputerNetwork/chapter6.0-物理层.pdf"
 cover : "/assets/cover/ComputerNetwork/note6.jpg"
 ifPrevious : null
 previousUrl : ""
@@ -112,7 +112,7 @@ nextCover : ""
 
 **物理带宽**(Hz) 为传输过程中振幅不会明显衰减的**频率范围**。 是一种**物理特性**，通常取决于介质材料的构成、厚度、 长度等
 
-> #### **理想信道的最大传输速率**
+> #### 理想信道的最大传输速率
 
 [怎样形象理解码元？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/280404107)
 
@@ -134,7 +134,7 @@ nextCover : ""
 
 
 
-> #### **噪声信道的最大传输速率**
+> #### 噪声信道的最大传输速率
 
 **香农定理**
 
@@ -225,7 +225,7 @@ $$
 
 <img src="/assets/images/ComputerNetwork/img/chapter6-7.png" alt="chapter6-7" style="zoom:80%;" />
 
-### **波分多路复用**
+### 波分多路复用
 
 **波分多路复用WDM (Wavelength Division Multiplexing)**
 
@@ -235,7 +235,7 @@ $$
 
 <img src="/assets/images/ComputerNetwork/img/chapter6-8.png" alt="chapter6-8" style="zoom:80%;" />
 
-### **码分多路复用**
+### 码分多路复用
 
 **码分多路复用CDMA (Code Division Multiple Access)**
 
