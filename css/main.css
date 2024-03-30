@@ -3050,10 +3050,10 @@ body.is-touch .poptrox-popup .closer {
 #markdown-toc {
     position: fixed;
     bottom: 50px; 
-    right: 0;
+    right: 20px;
     padding: 30px 30px 30px 30px;
     padding-top: 10px;
-    background-color: rgb(255, 254, 247);
+    background-color: #76FFED;
     border: solid;
     border-width: 1px;
     border-radius: 20px;
@@ -3071,4 +3071,9 @@ body.is-touch .poptrox-popup .closer {
     right: 20px;
     width: 50px;
     height: 50px;
+}
+
+#blog  img {
+    max-width: 100%;
+    height: auto;
 }
