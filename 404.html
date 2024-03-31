@@ -1,18 +1,141 @@
 ---
-layout: default
 title: "Page not found"
-sitemap: false
 ---
-<div id="main">
-  <h1>Page not found</h1>
+<div class="bgg">
+  <title>404 - 该页面不存在</title>
+  <div class="body404">
+  <div class="info404">
+      <header id="header404" class="clearfix">
+      <div class="site-name404"><i>404</i>
+  </div>
 
-  <p>Uh-oh, you seem to have taken a wrong turn! It looks like this was the result of either:</p>
-
-  <ul>
-    <li>A mistyped URL, or a copy-and-paste mistakex</li>
-    <li>A broken link on a web pages or in an email</li>
-    <li>Moved or deleted content</li>
-  </ul>
-
-  <p>I suggest you head to my <a href="/">Home</a> page from here.</p>
+  <section>
+  <div class="title404">
+      <p>可 能 我 们 真 的 走 错 了 ！</p>
+      <br>                 
+      <div class="widget widget_ui_textads"><img id="img404" width="30%" alt="2D" style="border-radius: 20px;"></div>            
+  </div>
+      <a href="/" class="index404">点击返回</a>&nbsp;
+      <a href="javascript:location.reload();"class="index404">点击刷新</a><br>
+  </section>
+  </div>    
 </div>
+<style>
+  *{
+      user-select: none;
+  }
+  a, button.submit {
+      color:#6E7173;
+      text-decoration:none;
+      -webkit-transition:all .1s ease-in;
+      -moz-transition:all .1s ease-in;
+      -o-transition:all .1s ease-in;
+      transition:all .1s ease-in;
+  }
+  a:hover, a:active {
+      color:#6E7173;
+  }
+  .body404{
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background:#fff;
+      background-size: auto 100%;
+      text-shadow:1px 1px 0 #fff;
+  }
+  .body-about .body404{
+      background:#fff;
+  }
+  .site-name404 {
+      margin: 0 auto;
+      text-align: center;
+      letter-spacing: 2px;
+      font: normal 150px/1 “Helvetica Neue”, Helvetica, Arial;
+      color:#444;
+  }
+  .site-name404 h1{
+      margin: 0 0 10px;
+      font-size:50px;
+      line-height:1.2;
+  }
+  .title404 span{
+      font-size: 15px;
+      width: 2px;
+  }
+  .site-name404 i {
+      font-style: normal;
+  }
+  .title404 p{
+      font-size: 20px;
+      line-height:1.5;
+      margin:0;
+      color:#444;
+  }
+  .info404{
+      position: absolute;
+      top: 30%;
+      text-align: center;
+      width: 100%;
+      margin-top: -160px;
+  }
+  .body-about .info404{
+      margin-top: -180px;
+  }
+  #footer404{
+      margin-top:30px;
+      font-size:10px;
+  }
+  .index404 {
+      margin-top: 24px;
+      display: inline-block;
+      white-space: nowrap;
+      cursor: pointer;
+      background: #444;
+      letter-spacing: 1px;
+      font-size: 14px;
+      -moz-user-select: -moz-none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+      text-shadow: none;
+      border: 1px solid #ccc;
+      line-height: 36px;
+      text-align: center;
+      height: 36px;
+      padding: 0 25px;
+      border-radius: 16px;
+      -webkit-transition-duration: 400ms;
+      transition-duration: 400ms;
+      background-color: #fff;
+      color: #999;
+  }
+  .index404:hover{
+      color: #F77B83;
+      border-color: #F77B83;
+      outline-style: none;
+  }
+  .icon-about{
+      padding: 10px 0 25px;
+  }
+  .icon-about a{
+      font-size: 20px;
+      margin: 5px;
+      color: #fff;
+      background-color: #000;
+      border-radius: 100%;
+      padding: 6px;
+  }
+</style>
+<script>
+  let images = [
+      "/CSAPP/note1.jpg", "/CSAPP/note2.jpg", "/CSAPP/note3.jpg", "/CSAPP/note4.jpg",
+      "/CSAPP/note5.jpg", "/CSAPP/note6.jpg", "/CSAPP/note7.jpg",
+      "/ComputerNetwork/note6.jpg"
+  ]
+  let rand = Math.floor(Math.random() * images.length);
+  let image404 = document.querySelector("#img404")
+  image404.src = "/assets/cover" + images[rand];
+</script>
+
+
