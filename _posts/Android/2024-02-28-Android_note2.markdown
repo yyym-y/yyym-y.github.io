@@ -1,11 +1,14 @@
 ---
-title : "chapter2.0-快速入门Kotlin"
 layout : post
-ifNext : true
-ifPrevious : true
-previousUrl : "/2024/02/26/Android_note1"
-nextUrl : "/2024/03/05/Android_note3"
+title : "chapter2.0-快速入门Kotlin"
+githubUrl : "https://github.com/yyym-y/note/blob/master/Android/chapter2.0-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8Kotlin.md"
+pdfUrl : "/pdf/Android/chapter2.0-快速入门Kotlin.pdf"
+cover : "/assets/cover/Android/note2.jpg"
+previousUrl : "/2024/02/26/Android_note1/"
+nextUrl : "/2024/03/05/Android_note3/"
 ---
+* awsl
+{:toc}
 
 
 

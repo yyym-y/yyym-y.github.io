@@ -21,40 +21,51 @@ layout: default
       </div>
     </section>
 
+    {% assign next_post = nil %}
+    {% assign pre_post = nil %}
+    {% for pp in site.documents %}
+      {% if pp.url == page.nextUrl %}
+        {% assign next_post = pp %}
+      {% endif %}
+      {% if pp.url == page.previousUrl %}
+        {% assign pre_post = pp %}
+      {% endif %}
+    {% endfor %}
+
     <footer>
       <div class="row">
-      {% if page.ifPrevious %}
-        <article class="{% cycle '6u', '6u$' %} 12u(small) excerpt">
+      {% if pre_post %}
+        <article class="{% cycle '6u', '6u$' %} 12u(small)">
           <header>
-            <h2><a href="{{ page.previousUrl }}">
+            <h2><a href="{{ pre_post.previousUrl }}">
               <img src="/assets/basic/prev.png" alt="pre" style="width: 20px; height: 20px; transform: translateY(2px);">
-              {{ page.previousTitle }}</a></h2>
+              {{ pre_post.title }}</a></h2>
           </header>
           <section>
-            <img src="{{ page.prevCover }}" alt="cover" style="width: 100%; height: 100%;">
+            <img src="{{ pre_post.cover }}" alt="cover" style="width: 100%; height: 100%;">
           </section>
           <footer>
             <ul class="actions">
-              <li><a href="{{ page.previousUrl }}" class="button">Read More</a></li>
+              <li><a href="{{ pre_post.url }}" class="button">Read More</a></li>
             </ul>
           </footer>
         </article>
       {% endif %}
 
-      {% if page.ifNext %}
+      {% if next_post %}
         <article class="{% cycle '6u', '6u$' %} 12u(small) excerpt f-right">
           <header>
-            <h2><a href="{{ page.nextUrl }}">
-              {{ page.nextTitle }}
+            <h2><a href="{{ next_post.url }}">
+              {{ next_post.title }}
               <img src="/assets/basic/next.png" alt="next" style="width: 30px; height: 30px; transform: translateY(5px);">
               </a></h2>
           </header>
           <section>
-            <img src="{{ page.nextCover }}" alt="cover" style="width: 100%; height: 100%; border-radius: 20px;">
+            <img src="{{ next_post.cover }}" alt="cover" style="width: 100%; height: 100%; border-radius: 20px;">
           </section>
           <footer>
             <ul class="actions">
-              <li><a href="{{ page.nextUrl }}" class="button">Read More</a></li>
+              <li><a href="{{ next_post.url }}" class="button">Read More</a></li>
             </ul>
           </footer>
         </article>

@@ -4,14 +4,8 @@ title : ""
 githubUrl : ""
 pdfUrl : "/pdf/"
 cover : "/assets/cover/"
-ifPrevious : null
 previousUrl : ""
-previousTitle : ""
-prevCover : "/assets/cover/"
-ifNext : null
 nextUrl : ""
-nextTitle : ""
-nextCover : "/assets/cover/"
 ---
 * awsl
 {:toc}

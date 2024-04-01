@@ -1,10 +1,14 @@
 ---
-title : "chapter3.0-Activity初试"
 layout : post
-ifNext : null
-ifPrevious : true
-previousUrl : "/2024/02/28/note2"
+title : "chapter3.0-Activity初试"
+githubUrl : "https://github.com/yyym-y/note/blob/master/Android/chapter3.0-Activity%E5%88%9D%E8%AF%95.md"
+pdfUrl : "/pdf/Android/chapter3.0-Activity初试.pdf"
+cover : "/assets/cover/Android/note3.jpg"
+previousUrl : "/2024/02/28/Android_note2/"
+nextUrl : "/2024/04/01/Android_note4/"
 ---
+* awsl
+{:toc}
 
 
 ## What is Activity

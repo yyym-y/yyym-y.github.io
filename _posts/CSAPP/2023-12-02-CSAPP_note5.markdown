@@ -1,16 +1,10 @@
 ---
-title : "CSAPP - 链接"
 layout : post
+title : "CSAPP - 链接"
 githubUrl : "https://github.com/yyym-y/CMU-CSAPP/blob/master/note/booknote/CSAPP-%E9%93%BE%E6%8E%A5.md"
 pdfUrl : "/pdf/CSAPP/CSAPP-链接.pdf"
-ifNext : true
-ifPrevious : true
-previousUrl : "/2024/01/14/CSAPP_note4"
-previousTitle : "CSAPP - 存储器层次结构"
-nextUrl : "/2023/12/13/CSAPP_note6"
-nextTitle : "CSAPP - 异常控制流"
-nextCover : "/assets/cover/CSAPP/note6.jpg"
-prevCover : "/assets/cover/CSAPP/note4.jpg"
+previousUrl : "/2024/01/14/CSAPP_note4/"
+nextUrl : "/2023/12/13/CSAPP_note6/"
 cover : "/assets/cover/CSAPP/note5.jpg"
 ---
 * awsl

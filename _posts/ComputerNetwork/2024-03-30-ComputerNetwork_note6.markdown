@@ -4,14 +4,8 @@ title : "chapter6.0 - 物理层"
 githubUrl : "https://github.com/yyym-y/note/blob/master/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88Network%EF%BC%89/chapter6.0-%E7%89%A9%E7%90%86%E5%B1%82.md"
 pdfUrl : "/pdf/ComputerNetwork/chapter6.0-物理层.pdf"
 cover : "/assets/cover/ComputerNetwork/note6.jpg"
-ifPrevious : null
 previousUrl : ""
-previousTitle : ""
-prevCover : ""
-ifNext : null
 nextUrl : ""
-nextTitle : ""
-nextCover : "" 
 ---
 * awsl
 {:toc}

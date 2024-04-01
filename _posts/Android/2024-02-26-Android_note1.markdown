@@ -1,11 +1,14 @@
 ---
-title : "chapter1.0-安卓启程"
 layout : post
-ifNext : true
-ifPrevious : null
-nextUrl : "/2024/02/28/Android_note2"
+title : "chapter1.0-安卓启程"
+githubUrl : "https://github.com/yyym-y/note/blob/master/Android/chapter1.0-%E5%AE%89%E5%8D%93%E5%90%AF%E7%A8%8B.md"
+pdfUrl : "/pdf/Android/chapter1.0-安卓启程.pdf"
+cover : "/assets/cover/Android/note1.jpg"
+previousUrl : ""
+nextUrl : "/2024/02/28/Android_note2/"
 ---
-
+* awsl
+{:toc}
 
 ## 前言
 

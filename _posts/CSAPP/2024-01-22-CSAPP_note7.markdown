@@ -3,11 +3,7 @@ title : "CSAPP - 虚拟内存"
 layout : post
 githubUrl : "https://github.com/yyym-y/CMU-CSAPP/blob/master/note/booknote/CSAPP-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98.md"
 pdfUrl : "/pdf/CSAPP/CSAPP-虚拟内存.pdf"
-ifNext : null
-ifPrevious : true
-previousUrl : "/2023/12/13/CSAPP_note6"
-previousTitle : "CSAPP - 异常控制流"
-prevCover : "/assets/cover/CSAPP/note6.jpg"
+previousUrl : "/2023/12/13/CSAPP_note6/"
 cover : "/assets/cover/CSAPP/note7.jpg"
 ---
 * awsl

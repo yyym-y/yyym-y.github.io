@@ -3,14 +3,8 @@ title : "CSAPP - 异常控制流"
 layout : post
 githubUrl : "https://github.com/yyym-y/CMU-CSAPP/blob/master/note/booknote/CSAPP-%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81.md"
 pdfUrl : "/pdf/CSAPP/CSAPP-异常控制流.pdf"
-ifNext : true
-ifPrevious : true
-previousUrl : "/2023/12/02/CSAPP_note5"
-previousTitle : "CSAPP - 链接"
-prevCover : "/assets/cover/CSAPP/note5.jpg"
-nextUrl : "/2024/01/22/CSAPP_note7"
-nextTitle : "CSAPP - 虚拟内存"
-nextCover : "/assets/cover/CSAPP/note7.jpg"
+previousUrl : "/2023/12/02/CSAPP_note5/"
+nextUrl : "/2024/01/22/CSAPP_note7/"
 cover : "/assets/cover/CSAPP/note6.jpg"
 ---
 * awsl

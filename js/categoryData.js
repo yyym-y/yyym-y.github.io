@@ -35,7 +35,8 @@ export default {
         rightDir : [
           {name : "chapter1.0-安卓启程", link : "/2024/02/26/Android_note1", time : "2024-02-26"},
           {name : "chapter2.0-快速入门 K/otlin", link : "/2024/02/28/Android_note2", time : "2024-02-28"},
-          {name : "chapter3.0-Activity初试", link : "2024/03/05/Android_note3", time : "2024-03-05"}
+          {name : "chapter3.0-Activity初试", link : "2024/03/05/Android_note3", time : "2024-03-05"},
+          {name : "chapter4.0-UI开发", link : "2024/04/01/Android_note4", time : "2024-04-01"}
         ]
       },
       { // 第二层目录

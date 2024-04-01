@@ -3,14 +3,8 @@ title : "CSAPP - 存储器层次结构"
 layout : post
 githubUrl : "https://github.com/yyym-y/CMU-CSAPP/blob/master/note/booknote/CSAPP-%E5%AD%98%E5%82%A8%E5%99%A8%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84.md"
 pdfUrl : "/pdf/CSAPP/CSAPP-存储器层次结构.pdf"
-ifNext : true
-ifPrevious : true
-previousUrl : "/2024/02/01/CSAPP_note3"
-previousTitle : "CSAPP - 处理器体系结构"
-nextUrl : "/2023/12/02/CSAPP_note5"
-nextTitle : "CSAPP - 链接"
-nextCover : "/assets/cover/CSAPP/note5.jpg"
-prevCover : "/assets/cover/CSAPP/note3.jpg"
+previousUrl : "/2024/02/01/CSAPP_note3/"
+nextUrl : "/2023/12/02/CSAPP_note5/"
 cover : "/assets/cover/CSAPP/note4.jpg"
 ---
 * awsl
