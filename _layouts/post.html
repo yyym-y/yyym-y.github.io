@@ -6,13 +6,23 @@ layout: default
     <header>
       <h1 class="post-title">{{ page.title }}</h1>
       <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-      <a href="{{ page.githubUrl }}" class="button">Read On Github</a>
-      <a href="{{ page.pdfUrl }}" class="button">Read On PDF</a> 
-    </header>
+      <div id="postApp">
+        <a href="{{ page.githubUrl }}" class="button">Read On Github</a>
+        <a href="{{ page.pdfUrl }}" class="button">Read On PDF</a>
+        <a class="button">
+          <el-switch
+            v-model="value"
+            @change="activeCopy"
+            active-text="禁止复制"
+            inactive-text="开启复制"
+            active-color="#13ce66"
+            inactive-color="#ff4949">
+          </el-switch>      
+        </a>
 
-    <div id="postApp">
-      <el-button icon="el-icon-search" circle id="munuButton" @click="showMenu()"></el-button>
-    </div>
+        <el-button icon="el-icon-search" circle id="munuButton" @click="showMenu()"></el-button>
+      </div>
+    </header>
 
     <section>
       <img src="{{ page.cover }}" alt="cover" style="width: 100%; height: 100%;">
@@ -37,7 +47,7 @@ layout: default
       {% if pre_post %}
         <article class="{% cycle '6u', '6u$' %} 12u(small)">
           <header>
-            <h2><a href="{{ pre_post.previousUrl }}">
+            <h2><a href="{{ pre_post.url }}">
               <img src="/assets/basic/prev.png" alt="pre" style="width: 20px; height: 20px; transform: translateY(2px);">
               {{ pre_post.title }}</a></h2>
           </header>
@@ -79,7 +89,7 @@ layout: default
       el: '#postApp',
       data() {
           return {
-            
+            value : true
           };
       },
       methods : {
@@ -89,6 +99,14 @@ layout: default
           if(menu.style.visibility == "hidden")
             menu.style.visibility = "visible";
           else menu.style.visibility = "hidden"
+        },
+        activeCopy() {
+          let blog = document.querySelector("#blog")
+          if(this.value) {
+            blog.style.userSelect = "none"
+          }else {
+            blog.style.userSelect = "auto"
+          }
         }
       }
   });

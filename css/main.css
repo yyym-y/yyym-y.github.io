@@ -44,7 +44,6 @@ body {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    user-select:none;
 }
 
 
@@ -3076,4 +3075,12 @@ body.is-touch .poptrox-popup .closer {
 #blog  img {
     max-width: 100%;
     height: auto;
+}
+
+#blog {
+    user-select: none;
+}
+
+header {
+    user-select: none;
 }

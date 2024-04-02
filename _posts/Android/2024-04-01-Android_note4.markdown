@@ -10,8 +10,6 @@ nextUrl : ""
 * awsl
 {:toc}
 
-# chapter4.0-UI开发
-
 在这一章中, 我们将介绍在 Android 开发中的许许多多的 UI 控件, 这样我们在实际编写的 Activity 中将不再只是空白了
 
 在 Android Stdio 中, 有图像化的编辑页面, 但是为了方便讲解, 我们还是使用 `xml` 的方式编写

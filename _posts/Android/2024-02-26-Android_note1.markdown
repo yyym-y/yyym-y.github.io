@@ -44,7 +44,7 @@ Android系统是基于Linux内核的，这一层为Android设备的各种硬件�
 
 
 
-谷歌官方介绍如下:  [平台架构  | Platform  | Android Developers](https://developer.android.com/guide/platform?hl=zh-cn)
+谷歌官方介绍如下:  [平台架构  \| Platform  \| Android Developers](https://developer.android.com/guide/platform?hl=zh-cn)
 
 
 
