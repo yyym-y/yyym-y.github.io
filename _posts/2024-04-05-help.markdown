@@ -1,3 +1,16 @@
+---
+layout : post
+title : "网站使用说明喵~~~"
+githubUrl : ""
+pdfUrl : "/pdf/"
+cover : "/assets/cover/default.jpg"
+previousUrl : ""
+nextUrl : ""
+---
+* awsl
+{:toc}
+
+
 # yyym-y 的个人网站
 
 ## 说明
@@ -8,9 +21,9 @@
 
 > 网站展示
 
-![](assets\basic\main.png)
+![](/assets\basic\main.png)
 
-![](assets\basic\postImg.png)
+![](/assets\basic\postImg.png)
 
 
 ## 基于本网站构建自己的网站
