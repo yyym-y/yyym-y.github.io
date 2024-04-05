@@ -8,9 +8,9 @@
 
 > 网站展示
 
-![](assets\basic\main.png)
+![](/assets/basic/main.png)
 
-![](assets\basic\postImg.png)
+![](/assets/basic/postImg.png)
 
 
 ## 基于本网站构建自己的网站
