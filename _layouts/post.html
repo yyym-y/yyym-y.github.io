@@ -20,7 +20,7 @@ layout: default
           </el-switch>      
         </a>
 
-        <el-button icon="el-icon-search" circle id="munuButton" @click="showMenu()"></el-button>
+        <el-button icon="el-icon-search" circle id="munuButton" @click.stop="showMenu()"></el-button>
       </div>
     </header>
 
@@ -85,6 +85,16 @@ layout: default
   </article>
 </div>
 <script>
+  let menu = document.querySelector("#markdown-toc")
+  menu.style.visibility = "hidden"
+
+  document.onclick = function() {
+    let menu = document.querySelector("#markdown-toc")
+    if(menu.style.visibility == "visible")
+      menu.style.visibility = "hidden"
+    console.log("click")
+  }
+
   post = new Vue({
       el: '#postApp',
       data() {
@@ -95,7 +105,6 @@ layout: default
       methods : {
         showMenu() {
           let menu = document.querySelector("#markdown-toc")
-          console.log(menu.style.display)
           if(menu.style.visibility == "hidden")
             menu.style.visibility = "visible";
           else menu.style.visibility = "hidden"
