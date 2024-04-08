@@ -5,7 +5,7 @@ githubUrl : "https://github.com/yyym-y/note/blob/master/Android/chapter4.0-UI%E5
 pdfUrl : "/pdf/Android/chapter4.0-UI开发.pdf"
 cover : "/assets/cover/Android/note4.jpg"
 previousUrl : "/2024/03/05/Android_note3/"
-nextUrl : ""
+nextUrl : "/2024/04/08/Android_note5/"
 ---
 * awsl
 {:toc}
