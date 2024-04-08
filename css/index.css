@@ -16,14 +16,6 @@
     display: inline;
 }
 
-.left {
-    margin-left: 3px;
-}
-
-.right {
-    margin-right: 3px;
-}
-
 .half {
     width: 45%;
 }
@@ -46,3 +38,15 @@
 .icon_arrow {
     width: 20px; height: 20px; transform: translateY(2px);
 }
+
+.inner-space_between {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.dialog-max-height {
+    height: 50vh;
+}
+
+.el-scrollbar .el-scrollbar__wrap {overflow-x: hidden;}
