@@ -8,6 +8,8 @@ export default {
         cover : "/assets/categorizeImg/Android.png", firstLink : "/2024/02/26/Android_note1"},
         {key : "ComputerNetwork", title : "计算机网络系列", vis : false, 
         cover : "/assets/categorizeImg/ComputerNetwork.png", firstLink : "/2024/03/30/ComputerNetwork_note6"},
+        {key : "Tampermonkey", title : "油猴脚本系列", vis : false, 
+        cover : "/assets/categorizeImg/Tampermonkey.png", firstLink : "/2024/04/08/Tampermonkey_note1"},
     ],
     blog : {
         CSAPP : [
@@ -28,6 +30,9 @@ export default {
         ],
         ComputerNetwork : [
             {name : "chapter6.0 - 物理层", link : "/2024/03/30/ComputerNetwork_note6", time : "2024-03-30"}
+        ],
+        Tampermonkey : [
+            {name : "第一个 Tampermonkey 脚本", link : "/2024/04/08/Tampermonkey_note1", time : "2024-04-08"}
         ]
     }
 }
