@@ -7,8 +7,9 @@ layout: default
       <h1 class="post-title">{{ page.title }}</h1>
       <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
       <div id="postApp">
+        {% assign pdfUrl = "/js/pdfJS/web/viewer.html?file=" | append: page.pdfUrl %}
         <a href="{{ page.githubUrl }}" class="button">Read On Github</a>
-        <a href="{{ page.pdfUrl }}" class="button">Read On PDF</a>
+        <a href="{{ pdfUrl }}" class="button">Read On PDF</a>
         <a class="button">
           <el-switch
             v-model="value"
