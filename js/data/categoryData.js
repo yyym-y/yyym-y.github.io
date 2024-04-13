@@ -1,6 +1,4 @@
 export default {
-    point_color : "#0bbd87",
-
     category : [
         {key : "CSAPP", title : "CSAPP 系列", vis : false, 
         cover : "/assets/categorizeImg/CSAPP.png", firstLink : "2023/11/11/CSAPP_note1"},

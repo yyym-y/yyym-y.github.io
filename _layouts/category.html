@@ -1,57 +1,136 @@
 ---
 layout: default
 ---
+
 <div id="main">
-  <div style="font-size: 20px; font-weight: 800;">Blog Directory</div>
-  <div class="bar"></div>
+  <div style="font-size: 20px; font-weight: 800">Blog Directory</div>
+  <div class="bar" style="margin-bottom: 10px"></div>
   <div id="app">
-  {{ content }}
-  <!-- this part is to build Blog Dirctory -->
-  <div class="inner-space_between">
-        <div v-for="(cate, index) in category" :key="cate.title" class="half">
-            <article>
-                <header>
-                <h2><a :href="cate.firstLink">[[ cate.title ]]</a></h2>
-                </header>
-                <section>
-                <img :src="cate.cover" :alt="cate.title" class="cateImg"  @click="cate.vis = true">
-                </section>
-                <footer>
-                <ul class="actions">
-                    <li><div class="button" @click="cate.vis = true">Detail</div></li>
-                </ul>
-                </footer>
-            </article>
-        </div>
+    {{ content }}
+
+    <el-autocomplete
+      v-model="state"
+      :fetch-suggestions="querySearchAsync"
+      placeholder="请输入要搜索的博客"
+      @select="handleSelect"
+      style="width: 100%;"
+    ></el-autocomplete>
+
+    <!-- this part is to build Blog Dirctory -->
+    <div class="inner-space_between">
+      <div
+        v-for="(cate, index) in category.category"
+        :key="cate.title"
+        class="half"
+      >
+        <article>
+          <header>
+            <h2><a :href="cate.firstLink">[[ cate.title ]]</a></h2>
+          </header>
+          <section>
+            <img
+              :src="cate.cover"
+              :alt="cate.title"
+              class="cateImg"
+              @click="cate.vis = true"
+            />
+          </section>
+          <footer>
+            <ul class="actions">
+              <li><div class="button" @click="cate.vis = true">Detail</div></li>
+            </ul>
+          </footer>
+        </article>
+      </div>
     </div>
     <!-- this part is to build the menu when you click the cover or button -->
-    <div v-for="(cate, index) in category" :key="cate.key">
-        <el-dialog :title="`${cate.title}全书目录`" :visible.sync="cate.vis" width="27em" >
-            <el-scrollbar class="dialog-max-height">
-                <el-timeline>
-                    <el-timeline-item
-                        v-for="(item, index) in blog[cate.key]"
-                        :key="index" :color="point_color"
-                        :timestamp="item.time" >
-                        <a class="dir_a" :href="item.link">[[item.name]]</a> 
-                    </el-timeline-item>
-                </el-timeline>
-            </el-scrollbar>
-        </el-dialog>
+    <div v-for="(cate, index) in category.category" :key="cate.key">
+      <el-dialog
+        :title="`${cate.title}全书目录`"
+        :visible.sync="cate.vis"
+        width="27em"
+      >
+        <el-scrollbar class="dialog-max-height">
+          <el-timeline>
+            <el-timeline-item
+              v-for="(item, index) in category.blog[cate.key]"
+              :key="index"
+              :color="point_color"
+              :timestamp="item.time"
+            >
+              <a class="dir_a" :href="item.link">[[item.name]]</a>
+            </el-timeline-item>
+          </el-timeline>
+        </el-scrollbar>
+      </el-dialog>
     </div>
 
+    <div>Scattered articles</div>
+    <div class="thin-line" style="margin-bottom: 5px"></div>
+    <div
+      v-for="(blog, index) in scatter.blogs"
+      :key="index"
+      style="margin-top: 5px"
+    >
+      <a :href="blog.link" style="width: 100%"
+        >[[ blog.name ]] <span style="float: right">[[blog.time]]</span></a
+      >
     </div>
-   </div>
-<script src="../js/data/blogInfo.js" type="module"></script>
+  </div>
+</div>
+<script src="../js/data/categoryData.js" type="module"></script>
+<script src="../js/data/scatterData.js" type="module"></script>
 <script type="module">
-    import data from '../js/data/blogInfo.js';
-    new Vue({
-        el: '#app',
-        delimiters: ['[[', ']]'],
-        data() {
-            return data
-        },
-    });
+  import categoryData from "../js/data/categoryData.js";
+  import scatterData from "../js/data/scatterData.js";
+  new Vue({
+    el: "#app",
+    delimiters: ["[[", "]]"],
+    data() {
+      return {
+        point_color: "#0bbd87",
+        category: categoryData,
+        scatter: scatterData,
+        blogs: [],
+        state : ""
+      };
+    },
+    methods: {
+      handleSelect(item) {
+        window.location.href=item.link
+      },
+      querySearchAsync(queryString, cb) {
+        let blogs = this.blogs;
+        var results = queryString ? blogs.filter(this.createStateFilter(queryString)) : blogs;
+        cb(results)
+      },
+      createStateFilter(queryString) {
+        return (state) => {
+          return (state.value.indexOf(queryString) != -1);
+        };
+      },
+      
+    },
+    mounted() {
+      for(let item of this.scatter.blogs)
+        this.blogs.push(item);
+      for(let item_cate of this.category.category) {
+        let key = item_cate.key;
+        console.log(key);
+        for(let item_info of this.category.blog[key])
+          this.blogs.push(item_info);
+      }
+      const strings = this.blogs.map((item) => JSON.stringify(item));
+      const removeDupList = [...new Set(strings)];
+      this.blogs = removeDupList.map((item) => JSON.parse(item));
+      this.blogs = this.blogs.map((blog) => {
+        return {
+          value : blog.name,
+          link : blog.link,
+          time : blog.time
+        };
+      });
+      console.log(this.blogs)
+    }
+  });
 </script>
-
-
