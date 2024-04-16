@@ -87,7 +87,7 @@ layout: default
       :key="index"
       style="margin-top: 5px"
     >
-      <a :href="blog.link" style="width: 100%"
+      <a @click="jump(blog)" style="width: 100%"
         >[[ blog.name ]] <span style="float: right">[[blog.time]]</span></a
       >
     </div>
