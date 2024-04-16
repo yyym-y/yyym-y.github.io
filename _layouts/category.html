@@ -114,7 +114,7 @@ layout: default
     },
     methods: {
       handleSelect(item) {
-        window.location.href=item.link
+        jump(item);
       },
       querySearchAsync(queryString, cb) {
         let blogs = this.blogs;
