@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<body>
+       <div id="main">
+        <article>
+          <header>
+            <h1 class="post-title"></h1>
+            <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+          </header>
+          <a id="a-href" class="button">全屏观看</a>
+          <iframe id="iframe-src" class="pdfCSS"></iframe>
+        </article>
+      </div>
+</body>
+
+<script>
+  function getQueryString(name) {
+    const url_string = window.location.href; // 当前页面的 URL
+    const url = new URL(url_string);
+    return url.searchParams.get(name);
+  }
+
+  let a_href = document.querySelector("#a-href");
+  let iframe_src = document.querySelector("#iframe-src");
+  let post_title = document.querySelector(".post-title");
+
+  post_title.innerHTML = getQueryString("title")
+  let real_url = "/js/pdfJS/web/viewer.html?file=" + getQueryString("file") 
+  a_href.href = real_url;
+  iframe_src.src = real_url;
+</script>

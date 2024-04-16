@@ -55,3 +55,9 @@
     height: 1px;
     background-color: gray;
 }
+
+.pdfCSS {
+    width: 120%;
+    height: 100vh;
+    transform: translateX(-2em);
+}
