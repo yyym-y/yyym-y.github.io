@@ -10,6 +10,8 @@ export default {
         cover : "/assets/categorizeImg/ComputerNetwork.png", firstLink : "/2024/03/30/ComputerNetwork_note6"},
         {key : "Tampermonkey", title : "油猴脚本系列", vis : false, 
         cover : "/assets/categorizeImg/Tampermonkey.png", firstLink : "/2024/04/08/Tampermonkey_note1"},
+        {key : "AlgorithmRecover", title : "算法复健系列", vis : false, 
+        cover : "", firstLink : "/2024/04/16/AlgorithmRecover-ID_1"},
     ],
     blog : {
         CSAPP : [
@@ -33,6 +35,9 @@ export default {
         ],
         Tampermonkey : [
             {name : "第一个 Tampermonkey 脚本", link : "/2024/04/08/Tampermonkey_note1", time : "2024-04-08"}
+        ],
+        AlgorithmRecover : [
+            {name : "算法复健::ID_1", link : "/2024/04/16/AlgorithmRecover-ID_1", time : "2024-04-16"}
         ]
     }
 }

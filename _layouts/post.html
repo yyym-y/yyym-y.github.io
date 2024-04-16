@@ -8,7 +8,14 @@ layout: default
       <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
       <div id="postApp">
         {% assign pdfUrl = "/js/pdfJS/web/viewer.html?file=" | append: page.pdfUrl %}
-        <a href="{{ page.githubUrl }}" class="button">Read On Github</a>
+        {% assign githubUrl = page.githubUrl %}
+        {% if page.pdfUrl == "/pdf/" %}
+          {% assign pdfUrl = "/404" %}
+        {% endif %}
+        {% if page.githubUrl == "" %}
+          {% assign githubUrl = "/404" %}
+        {% endif %}
+        <a href="{{ githubUrl }}" class="button">Read On Github</a>
         <a href="{{ pdfUrl }}" class="button">Read On PDF</a>
         <a class="button">
           <el-switch
@@ -26,7 +33,9 @@ layout: default
     </header>
 
     <section>
+      {% if page.cover != "/assets/cover/" %}
       <img src="{{ page.cover }}" alt="cover" style="width: 100%; height: 100%;">
+      {% endif %}
       <div id="blog">
         {{ content }}
       </div>

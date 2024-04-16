@@ -129,7 +129,8 @@ layout: default
       jump(item) {
         let url = item.link;
         if(url.indexOf(".pdf") != -1) {
-          url = "/pdfView?file=" + item.link + "&title=" + item.name;
+          let name = item.name ? item.name : item.value;
+          url = "/pdfView?file=" + item.link + "&title=" + name;
         }
         window.location.href = url;
       }

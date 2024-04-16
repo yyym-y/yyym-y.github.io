@@ -83,3 +83,43 @@
 .title_font {
     font-weight: 1000;
 }
+
+#markdown-toc {
+    position: fixed;
+    bottom: 50px; 
+    right: 20px;
+    padding: 30px 30px 30px 30px;
+    padding-top: 10px;
+    background-color: #76FFED;
+    border: solid;
+    border-width: 1px;
+    border-radius: 20px;
+    border-color: gray;
+    visibility : hidden;
+    max-height: 80vh;
+    min-width: 40vh;
+    height: auto;
+    overflow: auto;
+    z-index: 999;
+}
+
+#munuButton {
+    position: fixed;
+    bottom: 20px; 
+    right: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+#blog  img {
+    max-width: 100%;
+    height: auto;
+}
+
+#blog {
+    user-select: none;
+}
+
+header {
+    user-select: none;
+}
