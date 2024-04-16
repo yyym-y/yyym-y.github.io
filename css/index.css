@@ -61,3 +61,25 @@
     height: 100vh;
     transform: translateX(-2em);
 }
+
+.el-menu-item, .el-submenu__title {
+    height: 35px;
+    line-height: 35px;
+}
+
+.el-submenu .el-menu-item {
+    height: 35px;
+    line-height: 35px;
+}
+
+.el-submenu__title {
+    padding-left: 2px !important;
+}
+
+.el-menu-item {
+    padding-left: 20px !important;
+}
+
+.title_font {
+    font-weight: 1000;
+}

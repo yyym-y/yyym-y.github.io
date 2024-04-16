@@ -1,9 +1,11 @@
 export default {
-    category : [
+    mainCate : [
         {key : "CSAPP", title : "CSAPP 系列", vis : false, 
         cover : "/assets/categorizeImg/CSAPP.png", firstLink : "2023/11/11/CSAPP_note1"},
         {key : "Android", title : "Android 开发系列", vis : false, 
         cover : "/assets/categorizeImg/Android.png", firstLink : "/2024/02/26/Android_note1"},
+    ],
+    category : [
         {key : "ComputerNetwork", title : "计算机网络系列", vis : false, 
         cover : "/assets/categorizeImg/ComputerNetwork.png", firstLink : "/2024/03/30/ComputerNetwork_note6"},
         {key : "Tampermonkey", title : "油猴脚本系列", vis : false, 

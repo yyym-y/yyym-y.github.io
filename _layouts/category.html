@@ -19,7 +19,7 @@ layout: default
     <!-- this part is to build Blog Dirctory -->
     <div class="inner-space_between">
       <div
-        v-for="(cate, index) in category.category"
+        v-for="(cate, index) in category.mainCate"
         :key="cate.title"
         class="half"
       >
@@ -44,7 +44,7 @@ layout: default
       </div>
     </div>
     <!-- this part is to build the menu when you click the cover or button -->
-    <div v-for="(cate, index) in category.category" :key="cate.key">
+    <div v-for="(cate, index) in category.mainCate" :key="cate.key">
       <el-dialog
         :title="`${cate.title}全书目录`"
         :visible.sync="cate.vis"
@@ -65,7 +65,21 @@ layout: default
       </el-dialog>
     </div>
 
-    <div>Scattered articles</div>
+    <div class="title_font">All Blog Series</div>
+    <div class="thin-line" style="margin-bottom: 5px"></div>
+    <el-menu>
+      <el-submenu v-for="(cate, index) in category.category" :index="cate.key">
+        <template slot="title"><span style="transform: translateX(-10px);">[[cate.title]]</span></template>
+        <el-menu-item-group>
+          <el-menu-item v-for="(item, index) in category.blog[cate.key]"
+            @click="jump(item)">
+            [[ item.name ]]
+          </el-menu-item>
+        </el-menu-item-group>        
+      </el-submenu>
+    </el-menu>
+
+    <div class="title_font">Scattered articles</div>
     <div class="thin-line" style="margin-bottom: 5px"></div>
     <div
       v-for="(blog, index) in scatter.blogs"
@@ -78,6 +92,8 @@ layout: default
     </div>
   </div>
 </div>
+
+
 <script src="../js/data/categoryData.js" type="module"></script>
 <script src="../js/data/scatterData.js" type="module"></script>
 <script type="module">
@@ -109,12 +125,24 @@ layout: default
           return (state.value.indexOf(queryString) != -1);
         };
       },
-      
+      jump(item) {
+        let url = item.link;
+        if(url.indexOf(".pdf") != -1) {
+          url = "/pdfView?file=" + item.link + "&title=" + item.name;
+        }
+        location.href = url;
+      }
     },
     mounted() {
       for(let item of this.scatter.blogs)
         this.blogs.push(item);
       for(let item_cate of this.category.category) {
+        let key = item_cate.key;
+        console.log(key);
+        for(let item_info of this.category.blog[key])
+          this.blogs.push(item_info);
+      }
+      for(let item_cate of this.category.mainCate) {
         let key = item_cate.key;
         console.log(key);
         for(let item_info of this.category.blog[key])
@@ -130,7 +158,6 @@ layout: default
           time : blog.time
         };
       });
-      console.log(this.blogs)
     }
   });
 </script>
