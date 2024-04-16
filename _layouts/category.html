@@ -68,10 +68,11 @@ layout: default
     <div class="title_font">All Blog Series</div>
     <div class="thin-line" style="margin-bottom: 5px"></div>
     <el-menu>
-      <el-submenu v-for="(cate, index) in category.category" :index="cate.key">
+      <el-submenu v-for="(cate, index) in category.category" :key="cate.key + `submenu`" :index="cate.key">
         <template slot="title"><span style="transform: translateX(-10px);">[[cate.title]]</span></template>
         <el-menu-item-group>
           <el-menu-item v-for="(item, index) in category.blog[cate.key]"
+            :key="item.name + `menuItem`"
             @click="jump(item)">
             [[ item.name ]]
           </el-menu-item>
@@ -138,7 +139,7 @@ layout: default
         this.blogs.push(item);
       for(let item_cate of this.category.category) {
         let key = item_cate.key;
-        console.log(key);
+        console.log(key + "****");
         for(let item_info of this.category.blog[key])
           this.blogs.push(item_info);
       }
