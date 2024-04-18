@@ -9,6 +9,7 @@ layout: default
             <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
           </header>
           <a id="a-href" class="button">全屏观看</a>
+          <a id="download-href" class="button">下载 PDF</a>
           <iframe id="iframe-src" class="pdfCSS"></iframe>
         </article>
       </div>
@@ -22,11 +23,13 @@ layout: default
   }
 
   let a_href = document.querySelector("#a-href");
+  let download_href = document.querySelector("#download-href");
   let iframe_src = document.querySelector("#iframe-src");
   let post_title = document.querySelector(".post-title");
 
   post_title.innerHTML = getQueryString("title")
-  let real_url = "/js/pdfJS/web/viewer.html?file=" + getQueryString("file") 
+  let real_url = "/js/pdfJS/web/viewer.html?file=" + getQueryString("file")
+  download_href.href = getQueryString("file");
   a_href.href = real_url;
   iframe_src.src = real_url;
 </script>

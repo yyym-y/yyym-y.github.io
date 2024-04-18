@@ -97,6 +97,7 @@ layout: default
 <script>
   let menu = document.querySelector("#markdown-toc")
   menu.style.visibility = "hidden"
+  document.querySelector("#blog").style.userSelect = "auto"
 
   document.onclick = function() {
     let menu = document.querySelector("#markdown-toc")
@@ -109,7 +110,7 @@ layout: default
       el: '#postApp',
       data() {
           return {
-            value : true
+            value : false
           };
       },
       methods : {
