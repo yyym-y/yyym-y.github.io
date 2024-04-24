@@ -12,6 +12,8 @@ export default {
         cover : "/assets/categorizeImg/Tampermonkey.png", firstLink : "/2024/04/08/Tampermonkey_note1"},
         {key : "AlgorithmRecover", title : "算法复健系列", vis : false, 
         cover : "", firstLink : "/2024/04/16/AlgorithmRecover-ID_1"},
+        {key : "MIT6_830", title : "MIT6.830系列", vis : false, 
+        cover : "", firstLink : "/2023/09/25/MIT6.830_note1/"},
     ],
     blog : {
         CSAPP : [
@@ -38,6 +40,12 @@ export default {
         ],
         AlgorithmRecover : [
             {name : "算法复健::ID_1", link : "/2024/04/16/AlgorithmRecover-ID_1", time : "2024-04-16"}
+        ],
+        MIT6_830 : [
+            {name : "MIT 6.830日寄-lab1", link : "/2023/09/25/MIT6.830_note1/", time : "2023-09-25"},
+            {name : "MIT 6.830日寄-lab2", link : "/2023/10/08/MIT6.830_note2/", time : "2023-10-08"},
+            {name : "MIT 6.830日寄-lab3", link : "/2023/10/16/MIT6.830_note3/", time : "2023-10-16"},
+            {name : "MIT 6.830日寄-lab4", link : "/2023/10/29/MIT6.830_note4/", time : "2023-10-29"}
         ]
     }
 }
