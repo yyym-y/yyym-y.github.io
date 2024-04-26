@@ -5,7 +5,7 @@ githubUrl : "https://github.com/yyym-y/note/blob/master/Android/chapter5.0-%E6%8
 pdfUrl : "/pdf/Android/chapter5.0-探究Fragment.pdf"
 cover : "/assets/cover/Android/note5.jpg"
 previousUrl : "/2024/04/01/Android_note4/"
-nextUrl : ""
+nextUrl : "/2024/04/15/Android_note6/"
 ---
 * awsl
 {:toc}

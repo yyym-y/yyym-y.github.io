@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-Language Code Editor</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/clike/clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/go/go.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/kotlin/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/hint/show-hint.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/hint/show-hint.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/hint/anyword-hint.min.js"></script>
+</head>
+<body>
+    <textarea id="code" name="code"></textarea>
+</body>
+
+<style>
+    .CodeMirror {
+        font-size: 17px;
+        height: auto;
+        background-color: #F9F6ED;
+    }
+
+</style>
+
+<script>
+    let editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+            lineNumbers: true,
+            mode: "text/x-csrc",
+            extraKeys: {"Ctrl-Space": "autocomplete"},
+    });
+
+    Init(window.location.protocol + "//" + window.location.host + getQueryString("file"))
+
+    function getQueryString(name) {
+        const url_string = window.location.href; // 当前页面的 URL
+        const url = new URL(url_string);
+        return url.searchParams.get(name);
+    }
+
+    function Init( url ) {
+        fetch( url )
+        .then(response => {
+            if (!response.ok) {
+            throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            editor.setValue(data)
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
+    }
+
+</script>
+</html>

@@ -27,7 +27,7 @@ nextUrl : "/2024/03/30/ComputerNetwork_note6/"
 
 因为数据链路层可以保障传输的 $01$ 串内容是正确的, 所以所有交换装置都必须实现数据链路层
 
-<img src="./img/chapter5-0.png" alt="chapter5-0" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-0.png" alt="chapter5-0" style="zoom:80%;" />
 
 主机 $H1$ 到主机 $H2$ 所经过的网络可以是多种不同类型的
 
@@ -61,7 +61,7 @@ nextUrl : "/2024/03/30/ComputerNetwork_note6/"
 
 * **数据链路层的协议数据单元: 帧**
 
-<img src="./img/chapter5-1.png" alt="chapter5-1" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-1.png" alt="chapter5-1" style="zoom:80%;" />
 
 ## 三个基本问题
 
@@ -75,11 +75,11 @@ nextUrl : "/2024/03/30/ComputerNetwork_note6/"
 
 每一个数据链路层都会规定帧的数据部分的最大长度, 也叫 **最大传输单元MTU(max transfer Unit)**
 
-<img src="./img/chapter5-2.png" alt="chapter5-2" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-2.png" alt="chapter5-2" style="zoom:80%;" />
 
 我们会用 **帧定界符** 来确定确定一个帧的开始以及结尾, 帧定界符一般是不可打印的
 
-<img src="./img/chapter5-3.png" alt="chapter5-3" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-3.png" alt="chapter5-3" style="zoom:80%;" />
 
 `SOH` 用十六进制表示为 $\mathrm{0x01}$ , `EOT` 用十六进制表示为 $\mathrm{0x04}$
 
@@ -95,9 +95,9 @@ nextUrl : "/2024/03/30/ComputerNetwork_note6/"
 
 这个转义字符为 ESC (十六进制表示为 $\mathrm{0x1B}$)
 
-<img src="./img/chapter5-4.png" alt="chapter5-4" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-4.png" alt="chapter5-4" style="zoom:80%;" />
 
-<img src="./img/chapter5-5.png" alt="chapter5-5" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-5.png" alt="chapter5-5" style="zoom:80%;" />
 
 
 
@@ -115,7 +115,7 @@ nextUrl : "/2024/03/30/ComputerNetwork_note6/"
 
  我们知道, 互联网中的用户通常都需要接入到 `ISP` 才能连接上互联网, 而在这个过程中, 数据链路层采用的协议一般是 **点对点协议PPP** 
 
-<img src="./img/chapter5-6.png" alt="chapter5-6" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-6.png" alt="chapter5-6" style="zoom:80%;" />
 
 在这个部分, 我们将重点介绍一下 点对点协议PPP
 
@@ -123,7 +123,7 @@ nextUrl : "/2024/03/30/ComputerNetwork_note6/"
 
 ### PPP协议帧各部分的组成
 
-<img src="./img/chapter5-7.png" alt="chapter5-7" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-7.png" alt="chapter5-7" style="zoom:80%;" />
 
 - 帧的首部：开始标识 $F$ 占1个字节，用十六进制 $7E$ 表示；$A$ 占 $1$ 个字节，$C$ 占一个字节，协议占 $2$ 个字节
 
@@ -145,7 +145,7 @@ nextUrl : "/2024/03/30/ComputerNetwork_note6/"
 2. 当协议字段为 $\mathrm{0xC021}$ 时，PPP帧的信息字段就是 PPP 链路控制协议 LCP 的数据。
 3. 当协议字段为 $\mathrm{0x8021}$ 时，PPP帧的信息字段就是网络层的控制数据。
 
-<img src="./img/chapter5-8.png" alt="chapter5-8" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-8.png" alt="chapter5-8" style="zoom:80%;" />
 
 ### PPP 协议的透明传输
 
@@ -155,13 +155,13 @@ nextUrl : "/2024/03/30/ComputerNetwork_note6/"
 2. 将信息字段中出现的每个 $\mathrm{0x7D}$ 字节转变为 $\mathrm{(0x7D,0x5D)}$ (数值减去 $\mathrm{0x20}$)
 3. 若信息字段出现 `ASCII` 码的控制字符（即数值小于 $\mathrm{0x20}$ 的字符），则在该字符前面要加上一个 $\mathrm{0x7D}$ 。同时将该字符的编码改变。(数值加上 $\mathrm{0x20}$)
 
-<img src="./img/chapter5-9.png" alt="chapter5-9" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-9.png" alt="chapter5-9" style="zoom:80%;" />
 
 **面向比特的同步链路：比特填充法（插入“比特0”）**
 
 每连续出现五个连续的 $1$ , 就往后面插入一个 $0$
 
-<img src="./img/chapter5-10.png" alt="chapter5-10" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-10.png" alt="chapter5-10" style="zoom:80%;" />
 
 
 
@@ -169,7 +169,7 @@ nextUrl : "/2024/03/30/ComputerNetwork_note6/"
 
 从工作状态上来看, PPP 协议已经不只是一个简单的数据链路层协议了, 还包含了物理层和网络层的内容
 
-<img src="./img/chapter5-11.png" alt="chapter5-11" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-11.png" alt="chapter5-11" style="zoom:80%;" />
 
 我们按照步骤一一讲述 PPP 协议的工作状态
 
@@ -215,7 +215,7 @@ nextUrl : "/2024/03/30/ComputerNetwork_note6/"
 
 可能的共用方法有 :
 
-<img src="./img/chapter5-12.png" alt="chapter5-12" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-12.png" alt="chapter5-12" style="zoom:80%;" />
 
 现在我们在广域网中不会使用这种方式, 而是使用分组交换的方式(我们之后会讲), 但是由于无线网络的天然特性以及在局域网中的优点, 使用广播信道依然实用, 所以我们依然需要学习
 
@@ -223,7 +223,7 @@ nextUrl : "/2024/03/30/ComputerNetwork_note6/"
 
 所以我们接下来学习的协议都是为了解决冲突
 
-<img src="./img/chapter5-13.png" alt="chapter5-13" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-13.png" alt="chapter5-13" style="zoom:80%;" />
 
 关于静态划分信道这一部分, 我们在这部分进行讲解
 
@@ -249,13 +249,13 @@ nextUrl : "/2024/03/30/ComputerNetwork_note6/"
 
 所谓的 ALOHA 协议其实非常简单, 换算成人话就是: 我想发我就发, 如果发生冲突了, 我就等一段随机事件之后再发送
 
-<img src="./img/chapter5-14.png" alt="chapter5-14" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-14.png" alt="chapter5-14" style="zoom:80%;" />
 
 纯粹的 ALOHA 协议的效率会非常低, 所以为了提高他的效率, 就有了 **时隙ALOHA协议**
 
 它与传统的 ALOHA 协议只有一个区别, 就是对发送的时间有要求, 时间被分成了一个又一个的时间片, 只有在时间片的开始才能发送信息
 
-<img src="./img/chapter5-15.png" alt="chapter5-15" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-15.png" alt="chapter5-15" style="zoom:80%;" />
 
 尽管如此, 碰撞冲突的概率还是非常大, 效率大概是传统的两倍, 现在基本已经不再使用 ALOHA 协议了
 
@@ -333,7 +333,7 @@ CSMA 协议有下面几种策略:
 
   > 我们以下面的一张图为例:
   >
-  > <img src="./img/chapter5-16.png" alt="chapter5-16" style="zoom:80%;" /> 
+  > <img src="/assets/images/ComputerNetwork/img/chapter5-16.png" alt="chapter5-16" style="zoom:80%;" /> 
   >
   > 当冲突点无限接近于 $B$ 点的时候, $A$ 检测到冲突的时间就无限接近于 $2\tau$
   >
@@ -409,7 +409,7 @@ CSMA 协议有下面几种策略:
 
 接下来我们来讲讲 CSMA/CA 的工作原理:
 
-<img src="./img/chapter5-17.png" alt="chapter5-17" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-17.png" alt="chapter5-17" style="zoom:80%;" />
 
 * 当源站想要发送一个数据帧的时候, 他会监测当前信道是否空闲
 
@@ -456,7 +456,7 @@ CSMA 协议有下面几种策略:
 * 当退避计时器的时间减小到零时，就开始发送数据;
 * 当退避计时器的时间还未减小到零时而信道又转变为忙状态，这时就冻结退避计时器的数值，重新等待信道变为空闲，再经过时间DIFS后，继续启动退避计时器。
 
-<img src="./img/chapter5-18.png" alt="chapter5-18" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-18.png" alt="chapter5-18" style="zoom:80%;" />
 
 
 
@@ -470,7 +470,7 @@ CSMA 协议有下面几种策略:
 
 > CTS 帧是广播发送, 也就是说: 如果其他站收到 CTS 帧, 那么在 CTS 中申请的那段时间内就都不会发送帧
 
-<img src="./img/chapter5-19.png" alt="chapter5-19" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-19.png" alt="chapter5-19" style="zoom:80%;" />
 
 如果RTS帧发生碰撞，源站就收不到CTS帧，需执行退避算法重传RTS帧。
 
@@ -486,7 +486,7 @@ CSMA 协议有下面几种策略:
 
 由于利用虚拟载波监听机制，站点**只要监听到RTS帧、CTS帧或数据帧中的任何一个，就能知道信道被占用的持续时间**，而不需要真正监听到信道上的信号，因此虚拟载波监听机制能减少隐蔽站带来的碰撞问题。
 
-<img src="./img/chapter5-20.png" alt="chapter5-20" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-20.png" alt="chapter5-20" style="zoom:80%;" />
 
 
 
@@ -500,7 +500,7 @@ CSMA 协议有下面几种策略:
 
 MAC 地址理论上是全球唯一的, 一个MAC 地址由下面的几个部分构成:
 
-<img src="./img/chapter5-21.png" alt="chapter5-21" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-21.png" alt="chapter5-21" style="zoom:80%;" />
 
 - 一个地址块可以生成 224 个不同的地址。这种 48 位地址称为 MAC-48，它的通用名称是 EUI-48
 - 生产适配器时，6 字节的 MAC 地址已被固化在适配器的 ROM，因此，**MAC 地址也叫做硬件地址 (hardware address) 或物理地址**
@@ -520,7 +520,7 @@ MAC 地址理论上是全球唯一的, 一个MAC 地址由下面的几个部分�
 
 然而，实践证明这种使用无源电缆线和大量机械接口的总线型以太网并不像人们想象的那么可靠
 
-<img src="./img/chapter5-22.png" alt="chapter5-22" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-22.png" alt="chapter5-22" style="zoom:80%;" />
 
 若总线上某一个连接点接触不良或者断开, 都有可能对整个总线网络带来巨大的打击
 
@@ -528,7 +528,7 @@ MAC 地址理论上是全球唯一的, 一个MAC 地址由下面的几个部分�
 
 他是用双绞线和 RJ-45 接口进行连接, 价格更便宜也更方便
 
-<img src="./img/chapter5-23.png" alt="chapter5-23" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-23.png" alt="chapter5-23" style="zoom:80%;" />
 
 * 使用集线器的以太网虽然物理拓扑是星型的，但在逻辑上仍然是一个总线网。总线上的各站点共享总线资源，使用的还是CSMA/CD协议
 * 集线器只工作在物理层，它的每个接口仅简单地转发比特，并不进行碰撞检测。碰撞检测的任务由各站点中的网卡负责。
@@ -552,11 +552,11 @@ IEEE于1990年制定了**10BASE-T**星型以太网的标准802.3i，这种以太
 
 IEEE 802.3标准规定，两个网段可用一个转发器连接起来，任意两个站点之间最多可以经过三个网段。
 
-<img src="./img/chapter5-24.png" alt="chapter5-24" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-24.png" alt="chapter5-24" style="zoom:80%;" />
 
 但是随着集线器共享式以太网的发展, 转发器以前不再那么流行, 现在已经流行使用光纤进行拓展距离
 
-<img src="./img/chapter5-25.png" alt="chapter5-25" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-25.png" alt="chapter5-25" style="zoom:80%;" />
 
 当集线器的接口用完后, 可以使用一个主干集线器将两个不同的碰撞域相连, 从而达到拓展的目的
 
@@ -572,7 +572,7 @@ IEEE 802.3标准规定，两个网段可用一个转发器连接起来，任意�
 
 但是如果我们使用网桥进行连接的话, 就会解决这个问题
 
-<img src="./img/chapter5-26.png" alt="chapter5-26" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-26.png" alt="chapter5-26" style="zoom:80%;" />
 
 我们简单说明一下网桥的工作原理
 
@@ -598,7 +598,7 @@ https://www.bilibili.com/video/BV1NT411g7n6?p=35
 
 为了提高网络的可靠性, 通常一个网络中会添加冗余的网桥来提高可靠性:
 
-<img src="./img/chapter5-27.png" alt="chapter5-27" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-27.png" alt="chapter5-27" style="zoom:80%;" />
 
 但这样就产生了环路, 如果发送广播帧(或盲目转发单播帧) 的时候就会形成广播风暴, 浪费资源
 
@@ -654,7 +654,7 @@ https://www.bilibili.com/video/BV1NT411g7n6?&p=36
 
 虚拟局域网 VLAN 是由一些局域网网段构成的与物理位置无关的逻辑组，而这些网段具有某些共同的需求。每一个 VLAN 的帧都有一个明确的标识符，指明发送这个帧的计算机属于哪一个 VLAN。虚拟局域网其实只是局域网给用户提供的一种服务，而并不是一种新型局域网。
 
-<img src="./img/chapter5-28.png" alt="chapter5-28" style="zoom:80%;" />
+<img src="/assets/images/ComputerNetwork/img/chapter5-28.png" alt="chapter5-28" style="zoom:80%;" />
 
 如图, 我们可以吧使用交换机相连的几台主机划分成不同的 VLAN 网段, 这样, 同一个 VLAN 的主机就可以相互通行, 不同VLAN 的主句就不能相互通行
 

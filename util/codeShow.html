@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Shower</title>
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+    <!-- http://127.0.0.1:4000/codeShow?num=2&name0=tcp_sender.cc&name1=tcp_sender.hh -->
+    <div id="app">
+        <el-tabs type="border-card">
+            <el-tab-pane v-for="(fileName, index) in name" :label="fileName" :key="index">
+                <div class="title">{{ fileName }}</div>
+                <!-- <iframe :src="'/codeEdit?file=' + url[index]" class="codeCSS"></iframe> -->
+                <iframe src="https://tool.lu/coderunner/embed/eNs.html" width="650" height="550" frameborder="0" mozallowfullscreen webkitallowfullscreen allowfullscreen></iframe>
+            </el-tab-pane>
+        </el-tabs>
+    </div>
+</body>
+<style>
+    .el-tabs__content {
+        height: 90vh;
+    }
+    .el-tab-pane {
+        height: 100%;
+    }
+    .codeCSS {
+        width: 100%;
+        height: 100%;
+    }
+    .title {
+        font-weight: 800;
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+</style>
+<script type="module">
+    import info from './js/data/codeMap.js'
+    new Vue({
+    el: "#app",
+    data() {
+        return {
+            codeMap : info.info,
+            num : 0,
+            name : [],
+            url : [],     
+        }
+    },
+    methods: {
+        getQueryString(name) {
+            const url_string = window.location.href; // 当前页面的 URL
+            const url = new URL(url_string);
+            return url.searchParams.get(name);
+        },
+        queryUrl( name ) {
+            for( let pr of this.codeMap ) {
+                if(pr.name == name) return pr.url
+            }
+        }
+    },
+    created() {
+        this.num = this.getQueryString("num");
+        for(let i = 0 ; i < this.num ; i ++) {
+            this.name[i] = this.getQueryString("name" + i);
+            this.url[i] = this.queryUrl(this.name[i]);
+        }
+    }
+  });
+</script>
+</html>

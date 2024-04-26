@@ -90,6 +90,7 @@
     right: 20px;
     padding: 30px 30px 30px 30px;
     padding-top: 10px;
+    padding-left: 50px;
     background-color: #76FFED;
     border: solid;
     border-width: 1px;
@@ -97,7 +98,7 @@
     border-color: gray;
     visibility : hidden;
     max-height: 80vh;
-    min-width: 40vh;
+    min-width: 300px;
     height: auto;
     overflow: auto;
     z-index: 999;
@@ -122,4 +123,10 @@
 
 header {
     user-select: none;
+}
+
+.boader-line {
+    border-width: 1px;
+    border-style: solid;
+    border-color: gray;
 }

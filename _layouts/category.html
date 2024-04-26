@@ -31,7 +31,7 @@ layout: default
             <img
               :src="cate.cover"
               :alt="cate.title"
-              class="cateImg"
+              class="cateImg boader-line"
               @click="cate.vis = true"
             />
           </section>
@@ -130,7 +130,7 @@ layout: default
         let url = item.link;
         if(url.indexOf(".pdf") != -1) {
           let name = item.name ? item.name : item.value;
-          url = "/pdfView?file=" + item.link + "&title=" + name;
+          url = "/util/pdfView?file=" + item.link + "&title=" + name;
         }
         window.location.href = url;
       }
@@ -140,13 +140,11 @@ layout: default
         this.blogs.push(item);
       for(let item_cate of this.category.category) {
         let key = item_cate.key;
-        console.log(key + "****");
         for(let item_info of this.category.blog[key])
           this.blogs.push(item_info);
       }
       for(let item_cate of this.category.mainCate) {
         let key = item_cate.key;
-        console.log(key);
         for(let item_info of this.category.blog[key])
           this.blogs.push(item_info);
       }
