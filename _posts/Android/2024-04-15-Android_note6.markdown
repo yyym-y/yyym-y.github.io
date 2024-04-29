@@ -3,9 +3,9 @@ layout : post
 title : "chapter6.0 - 广播机制"
 githubUrl : ""
 pdfUrl : "/pdf/"
-cover : "/assets/cover/"
+cover : "/assets/cover/Android/note6.jpg"
 previousUrl : "/2024/04/08/Android_note5/"
-nextUrl : ""
+nextUrl : "/2024/04/29/Android_note7/"
 ---
 * awsl
 {:toc}
