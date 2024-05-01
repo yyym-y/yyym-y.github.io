@@ -15,8 +15,7 @@
         <el-tabs type="border-card">
             <el-tab-pane v-for="(fileName, index) in name" :label="fileName" :key="index">
                 <div class="title">{{ fileName }}</div>
-                <!-- <iframe :src="'/codeEdit?file=' + url[index]" class="codeCSS"></iframe> -->
-                <iframe src="https://tool.lu/coderunner/embed/eNs.html" width="650" height="550" frameborder="0" mozallowfullscreen webkitallowfullscreen allowfullscreen></iframe>
+                <iframe :src="'./codeEdit?file=' + url[index]" class="codeCSS"></iframe>
             </el-tab-pane>
         </el-tabs>
     </div>
@@ -39,7 +38,7 @@
     }
 </style>
 <script type="module">
-    import info from './js/data/codeMap.js'
+    import info from '../js/data/codeMap.js'
     new Vue({
     el: "#app",
     data() {
