@@ -15,14 +15,14 @@
         <el-tabs type="border-card">
             <el-tab-pane v-for="(fileName, index) in name" :label="fileName" :key="index">
                 <div class="title">{{ fileName }}</div>
-                <iframe :src="'./codeEdit?file=' + url[index]" class="codeCSS"></iframe>
+                <iframe :src="'./codeEdit?file=' + url[index]" class="codeCSS" scrolling="no"></iframe>
             </el-tab-pane>
         </el-tabs>
     </div>
 </body>
 <style>
     .el-tabs__content {
-        height: 90vh;
+        height: 100%
     }
     .el-tab-pane {
         height: 100%;
@@ -59,7 +59,20 @@
             for( let pr of this.codeMap ) {
                 if(pr.name == name) return pr.url
             }
+        },
+        adjustIframeHeight(num) {
+            let iframe = document.querySelector("#pane-" + num + " .codeCSS")
+            let iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+            let height = iframeDocument.body.scrollHeight + 15;
+            iframe.style.height = height + 'px';
+        },
+    },
+    mounted() {
+        this.num = this.getQueryString("num");
+        for(let i = 0 ; i < this.num ; i ++) {
+            setInterval(this.adjustIframeHeight, 1000, i)
         }
+        
     },
     created() {
         this.num = this.getQueryString("num");
