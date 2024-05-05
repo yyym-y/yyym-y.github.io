@@ -10,12 +10,11 @@
 	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 </head>
 <body>
-    <!-- http://127.0.0.1:4000/codeShow?num=2&name0=tcp_sender.cc&name1=tcp_sender.hh -->
-    <div id="app">
+    <div id="codeShow">
         <el-tabs type="border-card">
-            <el-tab-pane v-for="(fileName, index) in name" :label="fileName" :key="index">
-                <div class="title">{{ fileName }}</div>
-                <iframe :src="'./codeEdit?file=' + url[index]" class="codeCSS" scrolling="no"></iframe>
+            <el-tab-pane v-for="(item_pos , index) in pos" :label="codeData[item_pos].fileName" :key="index">
+                <div class="title">{{ codeData[item_pos].fileName }}</div>
+                <iframe :src="'./codeEdit?file=' + codeData[item_pos].url" class="codeCSS" scrolling="no"></iframe>
             </el-tab-pane>
         </el-tabs>
     </div>
@@ -40,13 +39,12 @@
 <script type="module">
     import info from '../js/data/codeMap.js'
     new Vue({
-    el: "#app",
+    el: "#codeShow",
     data() {
         return {
-            codeMap : info.info,
+            codeData : info.infos,
             num : 0,
-            name : [],
-            url : [],     
+            pos : []  
         }
     },
     methods: {
@@ -55,10 +53,12 @@
             const url = new URL(url_string);
             return url.searchParams.get(name);
         },
-        queryUrl( name ) {
-            for( let pr of this.codeMap ) {
-                if(pr.name == name) return pr.url
+        queryPos( key ) {
+            for(let i = 0 ; i < this.codeData.length ; i ++) {
+                if (this.codeData[i].key == key)
+                    return i;
             }
+            return -1;
         },
         adjustIframeHeight(num) {
             let iframe = document.querySelector("#pane-" + num + " .codeCSS")
@@ -70,15 +70,14 @@
     mounted() {
         this.num = this.getQueryString("num");
         for(let i = 0 ; i < this.num ; i ++) {
-            setInterval(this.adjustIframeHeight, 1000, i)
+            setInterval(this.adjustIframeHeight, 500, i)
         }
-        
     },
     created() {
         this.num = this.getQueryString("num");
         for(let i = 0 ; i < this.num ; i ++) {
-            this.name[i] = this.getQueryString("name" + i);
-            this.url[i] = this.queryUrl(this.name[i]);
+            let tem_key = this.getQueryString("key" + i);
+            this.pos[i] = this.queryPos( tem_key )
         }
     }
   });

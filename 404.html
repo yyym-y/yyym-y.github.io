@@ -26,7 +26,7 @@
 </div>    
 </body>
 </html>
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Ukenn2112/UkennWeb@3.0/index/web.js"></script>
 <style>
   *{
       user-select: none;
@@ -134,17 +134,11 @@
       padding: 6px;
   }
 </style>
-<script>
-  let images = [
-      "/CSAPP/note1.jpg", "/CSAPP/note2.jpg", "/CSAPP/note3.jpg", "/CSAPP/note4.jpg",
-      "/CSAPP/note5.jpg", "/CSAPP/note6.jpg", "/CSAPP/note7.jpg",
-      "/ComputerNetwork/note6.jpg",
-      "/Android/note1.jpg", "/Android/note2.jpg", "/Android/note3.jpg", "/Android/note4.jpg",
-      "/Android/note5.jpg"
-  ]
+<script type="module">
+  import imagess from "/js/data/imgData.js"
+  let images = imagess.img
   let rand = Math.floor(Math.random() * images.length);
   let image404 = document.querySelector("#img404")
-  image404.src = "/assets/cover" + images[rand];
+  image404.src = images[rand];
 </script>
-
 

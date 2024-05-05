@@ -130,3 +130,16 @@ header {
     border-style: solid;
     border-color: gray;
 }
+
+.el-table__cell {
+    padding-top : 3px !important;
+    padding-bottom: 3px !important;
+}
+
+.el-table__header {
+    margin-bottom: 0px !important;
+}
+
+.el-checkbox {
+    margin-bottom: 5px !important;
+}
